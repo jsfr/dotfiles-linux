@@ -26,6 +26,7 @@
     ds = diff --stat
     dc = diff --cached
     s = status -s
+    st = status
     co = checkout
     cob = checkout -b
     b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
