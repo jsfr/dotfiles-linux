@@ -174,14 +174,6 @@ bindsym Print exec import -window root /tmp/$(date +%F_%H%M%S_%N).png
 bindsym $alt+Print exec import -frame /tmp/$(date +%F_%H%M%S_%N).png
 bindsym $ctrl+$alt+h exec copyq show
 
-# bindsym XF86AudioRaiseVolume exec amixer set Master playback 5%+ && pkill -RTMIN+10 i3blocks
-# bindsym XF86AudioLowerVolume exec amixer set Master playback 5%- && pkill -RTMIN+10 i3blocks
-# bindsym XF86AudioMute exec amixer set Master toggle && pkill -RTMIN+10 i3blocks
-# bindsym XF86Launch1 exec xset dpms force off 
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 10 
-# bindsym Caps_Lock exec xkblayout-state set +1 && pkill -RTMIN+13 i3blocks
-
 # Startup applications
 exec --no-startup-id copyq
 exec --no-startup-id dunst
@@ -189,7 +181,6 @@ exec --no-startup-id unclutter -noevents
 exec --no-startup-id ([ `hostname` = "fujin" ] && syndaemon -k -i 2)
 exec --no-startup-id xbindkeys
 exec --no-startup-id xinput --set-prop Logitech\ M570 'Device Accel Constant Deceleration' 2 && xset m 5 4
-exec_always --no-startup-id (pgrep urxvtd || urxvtd -q -o -f)
 exec_always --no-startup-id (pgrep redshift || redshift -l 55.4:12.25 -m vidmode)
 exec_always --no-startup-id ([ `hostname` = "onamuji" ] && numlockx on)
 exec_always --no-startup-id feh --bg-fill $HOME/Sync/pictures/wallpapers/mixed/solarized-dark.jpg
