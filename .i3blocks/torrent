@@ -1,0 +1,13 @@
+#!/bin/bash
+
+raw_tor=`transmission-remote -l`
+if [[ -n $raw_tor ]]; then
+    fin_tor=`echo "$raw_tor" | grep '100%' | grep -v 'Stopped' | wc -l`
+    dow_tor=`echo "$raw_tor" | grep -v -E '100%|Stopped|ID|Sum' | wc -l`
+    pau_tor=`echo "$raw_tor" | grep 'Stopped' | wc -l`
+    echo "$dow_tor/$fin_tor/$pau_tor"
+else
+    echo "down"
+    echo "down"
+    echo "FF0000"
+fi

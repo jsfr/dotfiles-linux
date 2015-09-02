@@ -1,0 +1,20 @@
+#!/bin/bash
+
+INTERFACE="${BLOCK_INSTANCE:-wlan0}"
+
+state="$(cat /sys/class/net/$INTERFACE/operstate)"
+
+if [ "$state" != "up" ]; then
+	echo "down"
+	echo "down"
+	echo "#FF0000"
+	exit 0
+fi
+
+ipaddr="$(ip addr show $INTERFACE | perl -n -e'/inet (.+)\// && print $1')"
+ipaddr="${ipaddr:-0.0.0.0}"
+
+essid=$(iwconfig $INTERFACE | awk -F\" '/ESSID/ {print $2}')
+quality=$(iwconfig $INTERFACE | awk -F'[/=]|( )+' '/Link Quality/ {printf "%0.1f%", 100 / $5 * $4}')
+echo "$ipaddr ($quality at $essid)"
+echo "$ipaddr ($quality at $essid)"

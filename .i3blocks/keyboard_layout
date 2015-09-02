@@ -1,0 +1,8 @@
+#!/bin/bash
+
+case $BLOCK_BUTTON in
+    3 | 4) xkblayout-state set +1 ;;
+    5) xkblayout-state set -1 ;;
+esac
+
+echo $(xkblayout-state print %s)
