@@ -6,6 +6,6 @@ export PAGER=less
 export TERMINAL=st
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export STEAM_FRAME_FORCE_CLOSE=1
-export GOPATH=$HOME/repos/go
+export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/bin:$HOME/.cabal/bin:$HOME/.local/bin:$GOPATH/bin
 export XDG_CONFIG_HOME=$HOME/.config
