@@ -1,0 +1,4 @@
+directory: ~/music
+import:
+    move: yes
+plugins: discogs

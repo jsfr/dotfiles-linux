@@ -1,0 +1,78 @@
+set toolbars=noaddons,nobookmarks,nomenu,navigation,tabs
+set defsearch=duckduckgo
+
+colorscheme solarized
+
+" Easier esacping
+" noremap fd <Esc>
+
+" Ctrl-a
+inoremap <C-a> <C-Home><C-S-End>
+
+"" Vimperator does not give the user direct control over scroll distance. Vimium (for
+"" Chromium/Google Chrome) uses a nice 60px by default; 2<dir> is much smaller, but it
+"" feels better in Vimperator.
+nnoremap j 6j
+nnoremap k 6k
+nnoremap h 6h
+nnoremap l 6l
+noremap <C-k> <PageUp>
+noremap <C-j> <PageDown>
+
+map > :tabmove +1<CR>
+map < :tabmove -1<CR>
+map J :tabprevious<CR>
+map K :tabnext<CR>
+map H :back<CR>
+map L :forward<CR>
+
+"""" Downloads
+" noremap  <C-j> :tab downloads<CR>
+" inoremap <C-j> <Esc>:tab downloads<CR>
+" cnoremap <C-j> <Esc>:tab downloads<CR>
+
+"""" Search
+noremap <C-f> /
+inoremap <C-f> <Esc>/
+cnoremap <C-f> <Esc>/
+
+""" Tabs
+"""" Modified Firefox Hotkey(s)
+noremap <C-t> :tabopen 
+inoremap <C-t> <Esc>:tabopen 
+cnoremap <C-t> <Esc>:tabopen 
+
+" Disable smooth scrolling.
+set! general.smoothScroll=false
+" On tab bar too.
+set! toolkit.scrollbox.smoothScroll=false
+
+" Disable download animations...
+set! browser.download.animateNotifications=false
+
+" Disable fullscreen animations...
+set! browser.fullscreen.animateUp=0
+
+" Disable tab-groups animations...
+set! browser.panorama.animate_zoom=false
+
+" Save session every minute.
+set! browser.sessionstore.interval=60000
+
+" Disable password manager.
+set! signon.rememberSignons=false
+
+" Use dark theme for developer tools.
+set! devtools.theme="dark"
+
+" Do not report to Mozilla...
+set! datareporting.healthreport.uploadEnabled=false
+
+" Do not report to Google...
+set! browser.safebrowsing.enabled=false
+set! browser.safebrowsing.malware.enableds=false
+
+" Ignore keys
+ignorekeys add -except=t,o,:,/,<C-t>,J,K feedly\\.com
+
+" vim: set ft=vimperator:

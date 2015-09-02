@@ -1,0 +1,8 @@
+alias aurau='sudo aur && sudo aura -Syu && sudo aura -Akua'
+alias aurac='sudo aura -Oj' # pacman -Rcnsu $(pacman -Qtdq)'
+alias aural='aura -Qi | awk "/^Name/ {pkg=\$3} /Size/ {print \$4\$5,pkg}" | sort -h | column -t'
+alias auras='sudo paccache -r && sudo paccache -ruk0 && sudo pacman-optimize' # && sudo reflector --verbose -l 25 --sort rate --save /etc/pacman.d/mirrorlist'
+
+alias syncclock='sudo ntpd -qg && sudo hwclock --systohc'
+alias redshift-toggle='(pgrep redshift && pkill redshift) || redshift -l 55.4:12.25 -m vidmode &'
+alias trc='transmission-remote-cli'

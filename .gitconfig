@@ -1,0 +1,37 @@
+[user]
+	name = Jens Fredskov
+	email = jfrdev@gmail.com
+	signingkey = C6D85C13
+[credential]
+	helper = cache
+[color]
+	ui = true
+[push]
+	default = simple
+[commit]
+	gpgsign = true
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+    yolo = "!git commit -m \"YOLO: `curl -s http://whatthecommit.com/index.txt`\""
+    l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    a = add
+    aa = add -A
+    c = commit --verbose -m
+    d = diff
+    ds = diff --stat
+    dc = diff --cached
+    s = status -s
+    co = checkout
+    cob = checkout -b
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+    la = "!git config -l | grep alias | cut -c 7-"
+    plr = pull --rebase
+    pu = push
+    f = fetch
+    pl = pull
+    spp = "!git stash && git pull --rebase && git stash pop"

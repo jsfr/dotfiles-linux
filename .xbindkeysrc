@@ -1,0 +1,33 @@
+#increase volume
+"amixer set Master playback 5%+ && pkill -RTMIN+10 i3blocks"
+   m:0x0 + c:123
+   XF86AudioRaiseVolume
+
+#decrase volume
+"amixer set Master playback 5%- && pkill -RTMIN+10 i3blocks"
+   m:0x0 + c:122
+   XF86AudioLowerVolume
+
+# Toggle mute
+"amixer set Master toggle && pkill -RTMIN+10 i3blocks"
+   m:0x0 + c:121
+   XF86AudioMute
+
+# Close display
+"xset dpms force off"
+    m:0x0 + c:156
+    XF86Launch1
+
+# Brightness up
+"xbacklight -inc 10"
+    m:0x0 + c:233
+    XF86MonBrightnessUp
+
+# Brightness down
+"xbacklight -dec 10"
+    m:0x0 + c:232
+    XF86MonBrightnessDown
+
+# Change keyboard layout on Caps_Lock
+"xkblayout-state set +1 && pkill -RTMIN+13 i3blocks"
+    m:0x10 + c:66
