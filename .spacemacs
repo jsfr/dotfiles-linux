@@ -29,6 +29,9 @@
      javascript
      python
      git
+     java
+     org
+     html
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -155,7 +158,7 @@ before layers configuration."
   ;; User initialization goes here
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
@@ -175,6 +178,9 @@ layers configuration."
 
   ;; Don't use GTK dialogs, but use minibuffer/status instead
   (setq use-dialog-box nil)
+
+  (setq eclim-eclipse-dirs '("/usr/bin/eclipse")
+        '(eclim-executable "/usr/lib/eclipse/eclim"))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
