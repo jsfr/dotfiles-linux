@@ -32,6 +32,7 @@
      java
      org
      html
+     nim
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -178,8 +179,8 @@ layers configuration."
 
   ;; Don't use GTK dialogs, but use minibuffer/status instead
   (setq use-dialog-box nil)
-
-  (setq eclim-eclipse-dirs '("/usr/bin/eclipse")
+  
+  (setq eclim-eclipse-dirs '("/usr/lib/eclipse")
         '(eclim-executable "/usr/lib/eclipse/eclim"))
 )
 
