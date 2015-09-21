@@ -27,7 +27,7 @@ bindsym $win+Return exec st -e bash -c "tmux -q has-session && exec tmux attach-
 bindsym $win+$shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $win+d exec xboomx
+bindsym $win+d exec rofi -show run -location 2 -width 1920 -font Dina\ 9
 
 # alternatively, you can use the cursor keys:
 bindsym $win+Left focus left
@@ -169,7 +169,7 @@ new_window pixel 2px
 for_window [title="database.kdbx - KeePass"] move scratchpad
 
 # Custom keybindings
-bindsym $ctrl+$alt+l exec slimlock
+bindsym $ctrl+$alt+l exec i3lock -d -c 000000
 bindsym Print exec import -window root /tmp/$(date +%F_%H%M%S_%N).png
 bindsym $alt+Print exec import -frame /tmp/$(date +%F_%H%M%S_%N).png
 bindsym $ctrl+$alt+h exec copyq show
@@ -181,6 +181,6 @@ exec --no-startup-id unclutter -noevents
 exec --no-startup-id ([ `hostname` = "fujin" ] && syndaemon -k -i 2)
 exec --no-startup-id xbindkeys
 exec --no-startup-id xinput --set-prop Logitech\ M570 'Device Accel Constant Deceleration' 2 && xset m 5 4
+exec --no-startup-id git-annex assistant --autostart
 exec_always --no-startup-id (pgrep redshift || redshift -l 55.4:12.25 -m vidmode)
-exec_always --no-startup-id ([ `hostname` = "onamuji" ] && numlockx on)
-exec_always --no-startup-id feh --bg-fill $HOME/Sync/pictures/wallpapers/mixed/solarized-dark.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/annex/solarized-dark.jpg

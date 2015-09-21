@@ -22,14 +22,13 @@
                       syntax-checking-enable-tooltips nil)
      spell-checking
      version-control
-     (latex :variables
-            latex-enable-auto-fill t
-            latex-build-command "LatexMk")
+     ;; (latex :variables
+     ;;        latex-enable-auto-fill t
+     ;;        latex-build-command "LatexMk")
      go
      javascript
-     python
+     ;; python
      git
-     org
      html
      nim
      )
@@ -167,14 +166,14 @@ layers configuration."
   (setq evil-move-cursor-back nil)
 
   ;; Some LaTeX defaults
-  (setq TeX-view-program-list '(("PDF Viewer" "zathura %o")))
-  (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
-  (setq reftex-cite-format
-        '((?\C-m . "\\cite[]{%l}")
-          (?t . "\\textcite[]{%l}")
-          (?c . "\\citeauthor[]{%l}")
-          (?a . "\\autocite[]{%l}")))
-  (setq reftex-refstyle "\\cref")
+  ;; (setq TeX-view-program-list '(("PDF Viewer" "zathura %o")))
+  ;; (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
+  ;; (setq reftex-cite-format
+  ;;       '((?\C-m . "\\cite[]{%l}")
+  ;;         (?t . "\\textcite[]{%l}")
+  ;;         (?c . "\\citeauthor[]{%l}")
+  ;;         (?a . "\\autocite[]{%l}")))
+  ;; (setq reftex-refstyle "\\cref")
 
   ;; Don't use GTK dialogs, but use minibuffer/status instead
   (setq use-dialog-box nil)
