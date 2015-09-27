@@ -16,8 +16,6 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'archive' \
   'command-not-found' \
-  'gpg' \
-  'ssh' \
   'git' \
   'rsync' \
   'syntax-highlighting' \
@@ -46,7 +44,7 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 #
 
 # Set the SSH identities to load into the agent.
-zstyle ':prezto:module:ssh:load' identities 'id_rsa'
+#zstyle ':prezto:module:ssh:load' identities 'id_rsa'
 
 #
 # Syntax Highlighting
