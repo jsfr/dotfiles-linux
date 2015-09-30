@@ -27,7 +27,7 @@ bindsym $win+Return exec st -e bash -c "tmux -q has-session && exec tmux attach-
 bindsym $win+$shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $win+d exec rofi -show run -location 2 -width 1920 -font Dina\ 9
+bindsym $win+d exec rofi -show run -location 2 -width 100 -font Dina\ 9
 
 # alternatively, you can use the cursor keys:
 bindsym $win+Left focus left

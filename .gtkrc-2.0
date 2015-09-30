@@ -1,7 +1,7 @@
 gtk-theme-name="Numix Solarized"
 gtk-icon-theme-name="Faba"
 gtk-fallback-icon-theme="gnome"
-gtk-font-name="ubuntu 10"
+gtk-font-name="Liberation Sans 10"
 gtk-cursor-theme-name="Neutral_Plus"
 gtk-cursor-theme-size=18
 gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ

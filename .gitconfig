@@ -1,7 +1,7 @@
 [user]
 	name = Jens Fredskov
 	email = jensfredskov@protonmail.ch
-	signingkey = C6D85C13
+#	signingkey = C6D85C13
 [credential]
 	helper = cache
 [color]
@@ -9,7 +9,7 @@
 [push]
 	default = simple
 [commit]
-	gpgsign = true
+#	gpgsign = true
 [diff]
 	tool = meld
 [merge]
