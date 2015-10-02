@@ -1,6 +1,8 @@
 source ~/.aliases
 source ~/.environment
 
+source ~/repos/git-flow-completion/git-flow-completion.zsh
+
 # Needed to make GPG Agent ncurses work
 export GPG_TTY=`tty`
 
