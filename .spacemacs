@@ -20,20 +20,16 @@
      emacs-lisp
      (syntax-checking :variables
                       syntax-checking-enable-tooltips nil)
-     spell-checking
-     version-control
-     ;; (latex :variables
-     ;;        latex-enable-auto-fill t
-     ;;        latex-build-command "LatexMk")
-     go
-     javascript
-     ;; python
      git
+     go
      html
-     nim
-     sql
+     javascript
      markdown
+     nim
      pandoc
+     spell-checking
+     sql
+     version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
