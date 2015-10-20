@@ -26,6 +26,7 @@
      javascript
      markdown
      nim
+     python
      pandoc
      spell-checking
      sql
@@ -162,7 +163,7 @@ before layers configuration."
 layers configuration."
 
   ;; Don't move cursor back when changing to normal
-  (setq evil-move-cursor-back nil)
+  ;; (setq evil-move-cursor-back nil)
 
   ;; Some LaTeX defaults
   ;; (setq TeX-view-program-list '(("PDF Viewer" "zathura %o")))
@@ -201,6 +202,7 @@ layers configuration."
  '(indent-guide-delay 0.3 t)
  '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
+ '(js2-indent-switch-body t)
  '(tab-always-indent (quote complete)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

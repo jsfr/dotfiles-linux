@@ -19,15 +19,15 @@
     XF86Launch1
 
 # Brightness up
-"xbacklight -inc 10"
+"xbacklight -inc 10 && pkill -RTMIN+12 i3blocks"
     m:0x0 + c:233
     XF86MonBrightnessUp
 
 # Brightness down
-"xbacklight -dec 10"
+"xbacklight -dec 10 && pkill -RTMIN+12 i3blocks"
     m:0x0 + c:232
     XF86MonBrightnessDown
 
 # Change keyboard layout on Caps_Lock
-"xkblayout-state set +1 && pkill -RTMIN+13 i3blocks"
-    m:0x10 + c:66
+# "xkblayout-state set +1 && pkill -RTMIN+13 i3blocks"
+#    m:0x10 + c:66
