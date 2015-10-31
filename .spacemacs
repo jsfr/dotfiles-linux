@@ -165,16 +165,6 @@ layers configuration."
   ;; Don't move cursor back when changing to normal
   ;; (setq evil-move-cursor-back nil)
 
-  ;; Some LaTeX defaults
-  ;; (setq TeX-view-program-list '(("PDF Viewer" "zathura %o")))
-  ;; (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
-  ;; (setq reftex-cite-format
-  ;;       '((?\C-m . "\\cite[]{%l}")
-  ;;         (?t . "\\textcite[]{%l}")
-  ;;         (?c . "\\citeauthor[]{%l}")
-  ;;         (?a . "\\autocite[]{%l}")))
-  ;; (setq reftex-refstyle "\\cref")
-
   ;; Don't use GTK dialogs, but use minibuffer/status instead
   (setq use-dialog-box nil)
 
@@ -203,7 +193,8 @@ layers configuration."
  '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
  '(js2-indent-switch-body t)
- '(tab-always-indent (quote complete)))
+ '(tab-always-indent (quote complete))
+ '(visual-line-fringe-indicators (quote (left-curly-arrow right-curly-arrow))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
