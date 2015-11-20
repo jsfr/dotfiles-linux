@@ -11,9 +11,9 @@
 [commit]
 #	gpgsign = true
 [diff]
-	tool = meld
+	tool = kdiff3
 [merge]
-	tool = meld
+	tool = kdiff3
 [difftool]
 	prompt = false
 [alias]

@@ -26,7 +26,8 @@
      javascript
      markdown
      nim
-     python
+     (python :variables
+             python-enable-yapf-format-on-save t)
      pandoc
      spell-checking
      sql
@@ -189,11 +190,11 @@ layers configuration."
    (quote
     ("\\.o$" "~$" "\\.bin$" "\\.lbin$" "\\.so$" "\\.a$" "\\.ln$" "\\.blg$" "\\.bbl$" "\\.elc$" "\\.lof$" "\\.glo$" "\\.idx$" "\\.lot$" "\\.svn$" "\\.hg$" "\\.git$" "\\.bzr$" "CVS$" "_darcs$" "_MTN$" "\\.fmt$" "\\.tfm$" "\\.class$" "\\.fas$" "\\.lib$" "\\.mem$" "\\.x86f$" "\\.sparcf$" "\\.dfsl$" "\\.pfsl$" "\\.d64fsl$" "\\.p64fsl$" "\\.lx64fsl$" "\\.lx32fsl$" "\\.dx64fsl$" "\\.dx32fsl$" "\\.fx64fsl$" "\\.fx32fsl$" "\\.sx64fsl$" "\\.sx32fsl$" "\\.wx64fsl$" "\\.wx32fsl$" "\\.fasl$" "\\.ufsl$" "\\.fsl$" "\\.dxl$" "\\.lo$" "\\.la$" "\\.gmo$" "\\.mo$" "\\.toc$" "\\.aux$" "\\.cp$" "\\.fn$" "\\.ky$" "\\.pg$" "\\.tp$" "\\.vr$" "\\.cps$" "\\.fns$" "\\.kys$" "\\.pgs$" "\\.tps$" "\\.vrs$" "\\.pyc$" "\\.pyo$" "\\.aux$")))
  '(helm-ff-skip-boring-files t)
- '(indent-guide-delay 0.3 t)
+ ;; '(indent-guide-delay 0.3 t)
  '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
  '(js2-indent-switch-body t)
- '(tab-always-indent (quote complete))
+ ;; '(tab-always-indent (quote complete))
  '(visual-line-fringe-indicators (quote (left-curly-arrow right-curly-arrow))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
