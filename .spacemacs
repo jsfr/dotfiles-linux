@@ -24,6 +24,7 @@
      go
      html
      javascript
+     typescript
      markdown
      nim
      (python :variables
