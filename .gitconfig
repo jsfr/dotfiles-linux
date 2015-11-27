@@ -35,5 +35,8 @@
     f = fetch
     pl = pull
     spp = "!git stash && git pull --rebase && git stash pop"
+    st = stash
+    stl = stash list
+    stp = stash pop
 [core]
 	editor = nano
