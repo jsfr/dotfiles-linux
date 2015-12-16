@@ -24,12 +24,10 @@
      go
      html
      javascript
-     typescript
      markdown
      nim
      (python :variables
              python-enable-yapf-format-on-save t)
-     pandoc
      spell-checking
      sql
      version-control
@@ -80,7 +78,7 @@ before layers configuration."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Dina"
-                               :size 12
+                               :size 11
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -175,6 +173,23 @@ layers configuration."
   (setq whitespace-style '(face lines-tail))
   (add-hook 'prog-mode-hook 'whitespace-mode)
   (add-hook 'web-mode-hook 'whitespace-turn-off)
+  (flycheck-define-checker javascript-flow
+    "A JavaScript syntax and style checker using Flow.
+See URL `http://flowtype.org/'."
+    :command ("flow" source-original)
+    :error-patterns
+    ((error line-start
+            (file-name)
+            ":"
+            line
+            ":"
+            (minimal-match (one-or-more not-newline))
+            ": "
+            (message (minimal-match (and (one-or-more anything) "\n")))
+            line-end))
+    :modes (js-mode js2-mode js3-mode))
+
+  (add-to-list 'flycheck-checkers 'javascript-flow t)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

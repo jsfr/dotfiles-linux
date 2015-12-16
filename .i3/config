@@ -170,8 +170,8 @@ for_window [title="database.kdbx - KeePass"] move scratchpad
 
 # Custom keybindings
 bindsym $ctrl+$alt+l exec i3lock -d -c 000000
-bindsym Print exec import -window root /tmp/$(date +%F_%H%M%S_%N).png
-bindsym $alt+Print exec import -frame /tmp/$(date +%F_%H%M%S_%N).png
+bindsym Print exec maim ~/`date +%F_%H%M%S_%N`.png
+bindsym $ctrl+Print exec maim -s ~/`date +%F_%H%M%S_%N`.png
 bindsym $ctrl+$alt+h exec copyq show
 
 # Startup applications
