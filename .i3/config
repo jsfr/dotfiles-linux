@@ -20,14 +20,8 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # Use Mouse+$win to drag floating windows to their wanted position
 floating_modifier $win
 
-# start a terminal
-bindsym $win+Return exec st -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s$USER@$HOSTNAME"
-
 # kill focused window
 bindsym $win+$shift+Q kill
-
-# start dmenu (a program launcher)
-bindsym $win+d exec rofi -show run -location 2 -width 100 -font Dina\ 9
 
 # alternatively, you can use the cursor keys:
 bindsym $win+Left focus left
@@ -168,20 +162,14 @@ new_window pixel 2px
 
 for_window [title="database.kdbx - KeePass"] move scratchpad
 
-# Custom keybindings
-bindsym $ctrl+$alt+l exec i3lock -d -c 000000
-bindsym Print exec maim ~/`date +%F_%H%M%S_%N`.png
-bindsym $ctrl+Print exec maim -s ~/`date +%F_%H%M%S_%N`.png
-bindsym $ctrl+$alt+h exec copyq show
-
 # Startup applications
 exec --no-startup-id copyq
 exec --no-startup-id dunst
 exec --no-startup-id unclutter -noevents
 exec --no-startup-id ([ `hostname` = "fujin" ] && syndaemon -k -i 2)
-exec --no-startup-id xbindkeys
 exec --no-startup-id xinput --set-prop Logitech\ M570 'Device Accel Constant Deceleration' 2 && xset m 5 4
 exec --no-startup-id git-annex assistant --autostart
 exec --no-startup-id srandrd /home/jens/repos/autorandr/autorandr --change
+exec --no-startup-id sxhkd
 exec_always --no-startup-id (pgrep redshift || redshift -l 55.4:12.25 -m vidmode)
 exec_always --no-startup-id feh --bg-fill $HOME/annex/solarized-dark.jpg

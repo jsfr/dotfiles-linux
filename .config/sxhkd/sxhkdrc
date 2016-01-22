@@ -1,0 +1,28 @@
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+{_,shift + ,super + }XF86MonBrightness{Up,Down}
+    xbacklight {-inc 5,-inc 15,-set 100,-dec 5,-dec 15,-set 0} && pkill -RTMIN+12 i3blocks
+
+{_, shift +, super +}XF86Audio{Raise,Lower}Volume
+    amixer set Master playback {5%+, 15%+, 100%, 5%-, 15%-, 0%} && pkill -RTMIN+10 i3blocks
+
+XF86AudioMute
+    amixer set Master toggle && pkill -RTMIN+10 i3blocks
+
+ctrl + alt + l
+    i3lock -d -c 000000
+
+{_,ctrl +} Print
+    maim {_,-s} ~/`date +%F_%H%M%S_%N`.png
+
+ctrl + alt + h
+    copyq show
+
+super + d
+    rofi -show run -location 2 -width 100 -font Hack\ 10
+
+super + Return
+    st -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s$USER@$HOSTNAME"
+    
