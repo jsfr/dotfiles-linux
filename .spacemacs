@@ -254,6 +254,7 @@ in `dotspacemacs/user-config'."
 
   (add-hook 'prog-mode-hook 'whitespace-mode)
   (add-hook 'web-mode-hook 'whitespace-turn-off)
+  (golden-ratio-mode 1)
   )
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
