@@ -1,5 +1,5 @@
 !--- Xcursor
-!Xcursor.theme: Neutral_Plus
+Xcursor.theme: Adwaita
 
 !---- Xft settings
 Xft.antialias: 1

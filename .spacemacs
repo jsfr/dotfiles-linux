@@ -241,7 +241,6 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
-
   (setq-default
    ;; Don't move cursor back when changing to normal
    ;; evil-move-cursor-back nil
@@ -254,14 +253,13 @@ in `dotspacemacs/user-config'."
 
   (add-hook 'prog-mode-hook 'whitespace-mode)
   (add-hook 'web-mode-hook 'whitespace-turn-off)
-  (golden-ratio-mode 1)
   )
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   )
-
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

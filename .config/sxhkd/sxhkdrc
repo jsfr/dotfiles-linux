@@ -1,30 +1,39 @@
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd && notify-send "sxhkd reloaded!"
 
+# Adjust brightness
 {_,shift + ,super + }XF86MonBrightness{Up,Down}
     xbacklight {-inc 5,-inc 15,-set 100,-dec 5,-dec 15,-set 0} && pkill -RTMIN+12 i3blocks
 
+# Adjust volume
 {_, shift +, super +}XF86Audio{Raise,Lower}Volume
     amixer set Master playback {5%+, 15%+, 100%, 5%-, 15%-, 0%} && pkill -RTMIN+10 i3blocks
 
+# Adjust volume
+super + shift + v : {button4,button5,k,j,m}
+    amixer set Master playback {1%+,1%-,1%+,1%-,0%} && pkill -RTMIN+10 i3blocks    
+
+# Mute/unmute volume
 XF86AudioMute
     amixer set Master toggle && pkill -RTMIN+10 i3blocks
 
+# Lock desktop
 ctrl + alt + l
     i3lock -d -c 000000
 
+# Take screenshot (Either entire screen or region/window)
 {_,ctrl +} Print
     maim {_,-s} ~/`date +%F_%H%M%S_%N`.png
 
+# Show clipboard manager
 ctrl + alt + h
     copyq show
 
-super + d
-    rofi -show run -location 2 -width 100 -font Dina\ 9
+# Show launcher for commands/windows
+super + {d,w}
+    rofi -show {run, window} -location 2 -width 100 -font Dina\ 9
 
+# Launch terminal
 super + Return
-    st -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s$USER@$HOSTNAME"
-
-super + shift + v : {button4,button5,k,j,m}
-    amixer set Master playback {1%+,1%-,1%+,1%-,0%} && pkill -RTMIN+10 i3blocks    
+    st -e dash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s$USER@$HOSTNAME"
