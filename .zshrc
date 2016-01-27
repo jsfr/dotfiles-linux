@@ -26,6 +26,6 @@ bindkey "^[j" history-substring-search-down
 bindkey "^[l" forward-word
 bindkey "^[h" backward-word
 
-. /usr/lib/z.sh
+eval "$(fasd --init auto)"
 
 ([[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx) || myZkbd
