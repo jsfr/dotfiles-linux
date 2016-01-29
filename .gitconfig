@@ -36,7 +36,7 @@
     pl = pull
     spp = "!git stash && git pull --rebase && git stash pop"
     st = stash
-    stl = stash list
+    stl = stash list --date=local
     stp = stash pop
 [core]
 	editor = nano
