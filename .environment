@@ -1,11 +1,12 @@
 export BROWSER=firefox
 export DEFAULT_SESSION=i3
-export EDITOR='emacs -nw'
+export EDITOR='nvim'
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 export PAGER=less
 export TERMINAL=st
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export STEAM_FRAME_FORCE_CLOSE=1
 export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/annex/bin:$GOPATH/bin:$HOME/.node_modules_global/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.3.0/bin
 export XDG_CONFIG_HOME=$HOME/.config
+export PATH=$PATH:$HOME/annex/bin:$GOPATH/bin:$HOME/.node_modules_global/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.3.0/bin
+
