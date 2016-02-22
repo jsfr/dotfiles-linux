@@ -160,7 +160,7 @@ for_window [title="database.kdbx - KeePass"] move scratchpad
 # Startup applications
 exec --no-startup-id copyq
 exec --no-startup-id dunst
-exec --no-startup-id unclutter -noevents
+exec --no-startup-id unclutter --exclude-root -b
 exec --no-startup-id ([ `hostname` = "fujin" ] && syndaemon -k -i 2)
 exec --no-startup-id xinput --set-prop Logitech\ M570 'Device Accel Constant Deceleration' 2 && xset m 5 4
 exec --no-startup-id git-annex assistant --autostart
