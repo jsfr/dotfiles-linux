@@ -1,3 +1,4 @@
+# Install zplug if it is missing, otherwise just source it
 if ! [[ -e ~/.zplug/zplug ]]; then
     git clone https://github.com/b4b4r07/zplug ~/.zplug
     source ~/.zplug/zplug
@@ -6,6 +7,7 @@ else
     source ~/.zplug/zplug
 fi
 
+# Manage plugs
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 zplug "zsh-users/zsh-history-substring-search"
 zplug "mafredri/zsh-async"
@@ -16,8 +18,6 @@ zplug "plugins/git-flow-avh", from:oh-my-zsh
 zplug "plugins/git-extras", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
 
-export PURE_PROMPT_SYMBOL=λ
-
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -26,15 +26,22 @@ if ! zplug check --verbose; then
     fi
 fi
 
+
+# Setup plugs
+## sindresorhus/pure
+export PURE_PROMPT_SYMBOL=λ
+
 # Then, source plugins and add commands to $PATH
 zplug load
 
+# Source environment variables and aliases
 source ~/.aliases
 source ~/.environment
 
 # Needed to make GPG Agent ncurses work
 export GPG_TTY=`tty`
 
+# Function to bind keys
 myZkbd() {
     autoload zkbd
     source ~/.zkbd/$TERM-:0 # may be different - check where zkbd saved the configuration:
@@ -54,4 +61,5 @@ myZkbd() {
     bindkey "^[h" backward-word
 }
 
+# If at TTY1 start X else bind keys
 ([[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx) || myZkbd
