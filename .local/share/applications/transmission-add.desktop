@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=transmission-add
+Exec=transmission-add %U
+Terminal=false
+Type=Application
+MimeType=application/x-bittorrent;x-scheme-handler/magnet;
