@@ -87,3 +87,5 @@ text/x-xmi=emacs.desktop
 text/x-xslfo=emacs.desktop
 text/x-zim-wiki=emacs.desktop
 text/xmcd=emacs.desktop
+x-scheme-handler/magnet=transmission-add.desktop
+application/x-bittorrent=transmission-add.desktop
