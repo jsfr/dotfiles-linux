@@ -17,6 +17,7 @@ zplug "plugins/fasd", from:oh-my-zsh
 zplug "plugins/git-flow-avh", from:oh-my-zsh
 zplug "plugins/git-extras", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
+zplug "sorin-ionescu/prezto", of:"modules/completion/init.zsh"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
