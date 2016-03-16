@@ -32,8 +32,6 @@ values."
      html
      javascript
      markdown
-     ;; (python :variables
-     ;;         python-enable-yapf-format-on-save t)
      spell-checking
      sql
      version-control
@@ -85,7 +83,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner nil
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
@@ -233,7 +231,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'trailing
    ))
 
 (defun dotspacemacs/user-init ()
@@ -272,6 +270,7 @@ layers configuration. You are free to put any user code."
  '(company-racer-executable "/home/jens/repos/racer/target/release/racer")
  '(company-racer-rust-src "/home/jens/repos/rust/src")
  '(css-indent-offset 2)
+ '(exec-path-from-shell-check-startup-files nil)
  '(flycheck-javascript-standard-executable "semistandard")
  '(helm-boring-file-regexp-list
    (quote

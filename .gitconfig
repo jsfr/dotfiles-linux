@@ -1,15 +1,12 @@
 [user]
 	name = Jens Fredskov
 	email = jensfredskov@protonmail.ch
-#	signingkey = C6D85C13
 [credential]
 	helper = cache
 [color]
 	ui = true
 [push]
 	default = simple
-[commit]
-#	gpgsign = true
 [diff]
 	tool = kdiff3
 [merge]
@@ -39,4 +36,6 @@
     stl = stash list --date=local
     stp = stash pop
 [core]
-	editor = nano
+	editor = nvim
+[pager]
+#	status = true
