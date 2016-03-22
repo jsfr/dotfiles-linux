@@ -247,6 +247,7 @@ in `dotspacemacs/user-config'."
    ;; Highlight lines longer than 80 chars
    whitespace-line-column 80
    whitespace-style '(face lines-tail)
+   rust-enable-racer t
    )
 
   (add-hook 'prog-mode-hook 'whitespace-mode)

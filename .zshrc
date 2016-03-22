@@ -14,7 +14,8 @@ zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
 zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "plugins/fasd", from:oh-my-zsh
-zplug "plugins/git-flow-avh", from:oh-my-zsh
+# zplug "plugins/git-flow-avh", from:oh-my-zsh
+zplug "petervanderdoes/git-flow-completion", of:"git-flow-completion.zsh"
 zplug "plugins/git-extras", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
 zplug "sorin-ionescu/prezto", of:"modules/completion/init.zsh"

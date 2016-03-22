@@ -7,3 +7,4 @@ x-scheme-handler/magnet=transmission-add.desktop
 application/x-bittorrent=transmission-add.desktop
 text/html=userapp-Firefox-OTA39X.desktop
 x-scheme-handler/https=chromium.desktop
+text/plain=nvim.desktop

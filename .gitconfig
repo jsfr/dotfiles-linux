@@ -29,6 +29,7 @@
     la = "!git config -l | grep alias | cut -c 7-"
     plr = pull --rebase
     pu = push
+    pua = push --all
     f = fetch
     pl = pull
     spp = "!git stash && git pull --rebase && git stash pop"
