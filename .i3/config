@@ -167,4 +167,4 @@ exec --no-startup-id git-annex assistant --autostart
 exec --no-startup-id srandrd display_handler
 exec --no-startup-id sxhkd
 exec_always --no-startup-id (pgrep redshift || redshift -l 55.4:12.25 -m vidmode)
-exec_always --no-startup-id feh --bg-scale $HOME/annex/nature.jpg
+exec_always --no-startup-id feh --bg-scale $HOME/annex/wallpapers/nature.jpg
