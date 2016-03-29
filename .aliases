@@ -4,3 +4,4 @@ alias aural='aura -Qi | awk "/^Name/ {pkg=\$3} /Size/ {print \$4\$5,pkg}" | sort
 alias auras='sudo paccache -r && sudo paccache -ruk0 && sudo pacman-optimize && sudo reflector --verbose -l 25 --sort rate --save /etc/pacman.d/mirrorlist'
 alias syncclock='sudo ntpd -qg && sudo hwclock --systohc'
 alias redshift-toggle='(pgrep redshift && pkill redshift) || redshift -l 55.4:12.25 -m vidmode &'
+alias make-package-lists='comm -23 <(pacman -Qqen | sort) <(pacman -Qgq base base-devel | sort) > ~/annex/package-lists/pacman.txt && pacman -Qqem > ~/annex/package-lists/aur.txt'
