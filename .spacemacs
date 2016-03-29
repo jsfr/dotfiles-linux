@@ -87,10 +87,10 @@ values."
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
-   dotspacemacs-startup-lists '(recents projects)
+   dotspacemacs-startup-lists nil
    ;; Number of recent files to show in the startup buffer. Ignored if
    ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
-   dotspacemacs-startup-recent-list-size 5
+   dotspacemacs-startup-recent-list-size 0
    ;; Default major mode of the scratch buffer (default `text-mode')
    dotspacemacs-scratch-mode 'text-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
@@ -268,8 +268,6 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(clean-aindent-mode t)
- '(company-racer-executable "/home/jens/repos/racer/target/release/racer")
- '(company-racer-rust-src "/home/jens/repos/rust/src")
  '(css-indent-offset 2)
  '(exec-path-from-shell-check-startup-files nil)
  '(flycheck-javascript-standard-executable "semistandard")
