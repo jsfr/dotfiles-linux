@@ -53,6 +53,7 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing non-existent history.
+setopt COMPLETE_ALIASES          # Don't expand aliases _before_ completion has finished
 
 # Then, source plugins and add commands to $PATH
 zplug load

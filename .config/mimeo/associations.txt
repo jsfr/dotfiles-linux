@@ -1,0 +1,5 @@
+chromium %U
+  ^https?://
+
+transmission-add %U
+  ^magnet:
