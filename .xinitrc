@@ -1,7 +1,6 @@
-# Environment
-# source ~/.environment
+# Perform tasks
+trash-empty 7 & # Remove items in trash older than 7 days
 
-# Let's go!
+# Merge Xresources and start i3
 xrdb -merge ~/.Xresources &
-# setxkbmap -layout "us" -variant "danish" -option "compose:rctrl"
 exec i3
