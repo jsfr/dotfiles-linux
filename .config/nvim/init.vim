@@ -74,7 +74,7 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
-let mapleader = "\<Space>"
+let mapleader = ","
 
 inoremap fd <Esc>
 nnoremap n nzz
