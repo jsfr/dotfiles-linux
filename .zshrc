@@ -59,8 +59,8 @@ setopt COMPLETE_ALIASES          # Don't expand aliases _before_ completion has 
 zplug load
 
 # Source environment variables and aliases
-source ~/.aliases
-source ~/.environment
+source ~/.zsh_aliases
+source ~/.zsh_environment
 
 # Needed to make GPG Agent ncurses work
 export GPG_TTY=`tty`
@@ -68,7 +68,7 @@ export GPG_TTY=`tty`
 # Function to bind keys
 myZkbd() {
     autoload zkbd
-    source ~/.zkbd/$TERM-:0 # may be different - check where zkbd saved the configuration:
+    source ~/.zkbd/$TERM-:1 # may be different - check where zkbd saved the configuration:
     [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
     [[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
     [[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line

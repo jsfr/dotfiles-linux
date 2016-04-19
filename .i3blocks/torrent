@@ -11,3 +11,7 @@ else
     echo "down"
     echo "FF0000"
 fi
+
+case $BLOCK_BUTTON in
+    3) $BROWSER "http://localhost:9091"
+esac

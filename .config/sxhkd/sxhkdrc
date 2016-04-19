@@ -10,6 +10,9 @@ super + Escape
 {_, shift +, super +}XF86Audio{Raise,Lower}Volume
     amixer set Master playback {5%+, 15%+, 100%, 5%-, 15%-, 0%} && pkill -RTMIN+10 i3blocks
 
+XF86Audio{Play, Next, Prev}
+    playerctl {play-pause, next, previous}
+
 # Adjust volume
 super + shift + v : {button4,button5,k,j,m}
     amixer set Master playback {1%+,1%-,1%+,1%-,0%} && pkill -RTMIN+10 i3blocks    
@@ -32,7 +35,7 @@ ctrl + alt + h
 
 # Show launcher for commands/windows
 super + {d,w}
-    rofi -show {run, window} -location 2 -width 100 -font Dina\ 9
+    rofi -show {run, window} -location 2 -width 100 -font Hack\ 18
 
 # Launch terminal
 super + Return

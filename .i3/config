@@ -133,9 +133,9 @@ bindsym $super+$shift+S sticky toggle
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  font pango: Fixed, Symbola 10
+  font pango: Hack 9
   position top
-        status_command i3blocks -c .i3/i3blocks-`hostname`.conf
+        status_command i3blocks -c .i3blocks/`hostname`.conf
   colors {
     separator #586e75
     background #002b36
@@ -161,13 +161,12 @@ hide_edge_borders vertical
 for_window [title="database.kdbx - KeePass"] move scratchpad
 
 # Startup applications
-exec --no-startup-id copyq
+# exec --no-startup-id copyq
 exec --no-startup-id dunst
 exec --no-startup-id unclutter --exclude-root -b
-# exec --no-startup-id ([ `hostname` = "fujin" ] && syndaemon -k -i 2)
-exec --no-startup-id xinput --set-prop ELECOM\ ELECOM\ TrackBall\ Mouse 'Device Accel Constant Deceleration' 2 && xset m 5 4
-exec --no-startup-id git-annex assistant --autostart
+# exec --no-startup-id xinput --set-prop ELECOM\ ELECOM\ TrackBall\ Mouse 'Device Accel Constant Deceleration' 2 && xset m 5 4
 exec --no-startup-id srandrd display_handler
 exec --no-startup-id sxhkd
 exec_always --no-startup-id (pgrep redshift || redshift -l 55.4:12.25 -m vidmode)
 exec_always --no-startup-id feh --bg-scale $HOME/annex/wallpapers/nature.jpg
+exec_always --no-startup-id trash-empty 7
