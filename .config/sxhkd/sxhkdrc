@@ -1,6 +1,6 @@
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd && notify-send "sxhkd reloaded!"
+    pkill -USR1 -x sxhkd && notify-send "sxhkd reloaded!"
 
 # Adjust brightness
 {_,shift + ,super + }XF86MonBrightness{Up,Down}
@@ -15,7 +15,7 @@ XF86Audio{Play, Next, Prev}
 
 # Adjust volume
 super + shift + v : {button4,button5,k,j,m}
-    amixer set Master playback {1%+,1%-,1%+,1%-,0%} && pkill -RTMIN+10 i3blocks    
+    amixer set Master playback {1%+,1%-,1%+,1%-,0%} && pkill -RTMIN+10 i3block
 
 # Mute/unmute volume
 XF86AudioMute
@@ -31,7 +31,7 @@ ctrl + alt + l
 
 # Show clipboard manager
 ctrl + alt + h
-    copyq show
+    anamnesis -b
 
 # Show launcher for commands/windows
 super + {d,w}
