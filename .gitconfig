@@ -38,6 +38,7 @@
     stp = stash pop
 [core]
 	editor = nvim
+	autocrlf = input
 [pager]
 #	status = true
 [filter "lfs"]

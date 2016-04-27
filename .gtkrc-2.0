@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/jens/.gtkrc-2.0.mine"
-gtk-theme-name="FlatStudioDark"
+gtk-theme-name="Numix Solarized"
 gtk-icon-theme-name="Faba"
 gtk-font-name="Sans 10"
 gtk-cursor-theme-name="Adwaita"
