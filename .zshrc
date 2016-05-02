@@ -61,6 +61,7 @@ zplug load
 # Source environment variables and aliases
 source ~/.zsh_aliases
 source ~/.zsh_environment
+source /usr/share/nvm/init-nvm.sh
 
 # Needed to make GPG Agent ncurses work
 export GPG_TTY=`tty`
