@@ -1,10 +1,17 @@
+# Source environment variables and aliases
+source ~/.zsh_aliases
+source ~/.zsh_environment
+
+# Needed to make GPG Agent ncurses work
+export GPG_TTY=`tty`
+
 # Install zplug if it is missing, otherwise just source it
 if ! [[ -e ~/.zplug/zplug ]]; then
     git clone https://github.com/b4b4r07/zplug ~/.zplug
     source ~/.zplug/zplug
     zplug update --self
 else
-    source ~/.zplug/zplug
+   source ~/.zplug/zplug
 fi
 
 # Manage plugs
@@ -14,11 +21,10 @@ zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
 zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "plugins/fasd", from:oh-my-zsh
-# zplug "plugins/git-flow-avh", from:oh-my-zsh
-zplug "petervanderdoes/git-flow-completion", of:"git-flow-completion.zsh"
 zplug "plugins/git-extras", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
-zplug "sorin-ionescu/prezto", of:"modules/completion/init.zsh"
+zplug "plugins/npm", from:oh-my-zsh
+zplug "sorin-ionescu/prezto", use:"modules/completion/init.zsh"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -33,12 +39,12 @@ fi
 export PURE_PROMPT_SYMBOL=λ
 
 ## zsh-users/zsh-history-substring-search
-HISTFILE="$HOME/.zhistory"
-HISTSIZE=10000000
-SAVEHIST=10000000
+export HISTFILE="$HOME/.zhistory"
+export HISTSIZE=10000000
+export SAVEHIST=10000000
 
 ## oh-my-zsh
-DISABLE_AUTO_UPDATE=true
+export DISABLE_AUTO_UPDATE=true
 
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
@@ -58,13 +64,7 @@ setopt COMPLETE_ALIASES          # Don't expand aliases _before_ completion has 
 # Then, source plugins and add commands to $PATH
 zplug load
 
-# Source environment variables and aliases
-source ~/.zsh_aliases
-source ~/.zsh_environment
 source /usr/share/nvm/init-nvm.sh
-
-# Needed to make GPG Agent ncurses work
-export GPG_TTY=`tty`
 
 # Function to bind keys
 myZkbd() {

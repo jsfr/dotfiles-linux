@@ -36,6 +36,7 @@
     st = stash
     stl = stash list --date=local
     stp = stash pop
+	up = !git fetch && git rebase --autostash FETCH_HEAD
 [core]
 	editor = nvim
 	autocrlf = input

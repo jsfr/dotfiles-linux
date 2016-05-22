@@ -31,7 +31,7 @@ ctrl + alt + l
 
 # Show clipboard manager
 ctrl + alt + h
-    anamnesis -b
+    copyq toggle
 
 # Show launcher for commands/windows
 super + {d,w}
@@ -39,4 +39,4 @@ super + {d,w}
 
 # Launch terminal
 super + Return
-    st -e dash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s$USER@$HOSTNAME"
+    st -e dash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s$USER@$(hostname)"

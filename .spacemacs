@@ -18,24 +18,20 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     (auto-completion :variables
-                      auto-completion-return-key-behavior 'complete
-                      auto-completion-tab-key-behavior 'cycle
-                      auto-completion-complete-with-key-sequence nil
-                      auto-completion-complete-with-key-sequence-delay 0.1
-                      auto-completion-private-snippets-directory nil)
+     ;; ----------------------------------------------------------------
+     ;; Example of useful layers you may want to use right away.
+     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
+     ;; <M-m f e R> (Emacs style) to install them.
+     ;; ----------------------------------------------------------------
+     auto-completion
      emacs-lisp
-     (syntax-checking :variables
-                      syntax-checking-enable-tooltips nil)
      git
-     go
-     html
-     javascript
-     markdown
      spell-checking
-     sql
+     syntax-checking
      version-control
-     rust
+     react
+     javascript
+     html
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -87,28 +83,22 @@ values."
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
-   dotspacemacs-startup-lists nil
+   dotspacemacs-startup-lists '(recents projects)
    ;; Number of recent files to show in the startup buffer. Ignored if
    ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
-   dotspacemacs-startup-recent-list-size 0
+   dotspacemacs-startup-recent-list-size 5
    ;; Default major mode of the scratch buffer (default `text-mode')
    dotspacemacs-scratch-mode 'text-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(solarized-dark
-                         spacemacs-dark
-                         spacemacs-light
-                         solarized-light
-                         leuven
-                         monokai
-                         zenburn)
+   dotspacemacs-themes '(solarized-dark)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Hack"
-                               :size 12
+                               :size 26
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -167,7 +157,7 @@ values."
    dotspacemacs-helm-position 'bottom
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
-   dotspacemacs-enable-paste-micro-state t
+   dotspacemacs-enable-paste-micro-state nil
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
    dotspacemacs-which-key-delay 0.4
@@ -197,13 +187,13 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 80
+   dotspacemacs-inactive-transparency 100
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
    dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen. (default t)
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
@@ -220,7 +210,7 @@ values."
    dotspacemacs-persistent-server nil
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
-   ;; (default '("pt" "ag" "ack" "grep"))
+   ;; (default '("ag" "pt" "ack" "grep"))
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
@@ -236,28 +226,40 @@ values."
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
-It is called immediately after `dotspacemacs/init'.  You are free to put almost
-any user code here.  The exception is org related code, which should be placed
-in `dotspacemacs/user-config'."
-  (setq-default
-   ;; Don't move cursor back when changing to normal
-   ;; evil-move-cursor-back nil
-   ;; Don't use GTK dialogs, but use minibuffer/status instead
-   use-dialog-box nil
-   ;; Highlight lines longer than 80 chars
-   whitespace-line-column 80
-   whitespace-style '(face lines-tail)
-   rust-enable-racer t
-   )
-
-  (add-hook 'prog-mode-hook 'whitespace-mode)
-  (add-hook 'web-mode-hook 'whitespace-turn-off)
+It is called immediately after `dotspacemacs/init', before layer configuration
+executes.
+ This function is mostly useful for variables that need to be set
+before packages are loaded. If you are unsure, you should try in setting them in
+`dotspacemacs/user-config' first."
   )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
-layers configuration. You are free to put any user code."
+layers configuration.
+This is the place where most of your configurations should be done. Unless it is
+explicitly specified that a variable should be set before a package is loaded,
+you should place your code here."
+  ;; ;; disable jshint since we prefer eslint checking
+  ;; ;; disable json-jsonlist checking for json files
+  ;; (setq-default flycheck-disabled-checkers '(javascript-jshint))
+
+  ;; ;; adjust indents for web-mode to 2 spaces
+  ;; (defun my-web-mode-hook ()
+  ;;   "Hooks for Web mode. Adjust indents"
+  ;; ;;; http://web-mode.org/
+  ;;   (setq web-mode-markup-indent-offset 2)
+  ;;   (setq web-mode-css-indent-offset 2)
+  ;;   (setq web-mode-code-indent-offset 2))
+  ;; (add-hook 'web-mode-hook  'my-web-mode-hook)
+
+  ;; ;; for better jsx syntax-highlighting in web-mode
+  ;; ;; - courtesy of Patrick @halbtuerke
+  ;; (defadvice web-mode-highlight-part (around tweak-jsx activate)
+  ;;   (if (equal web-mode-content-type "jsx")
+  ;;       (let ((web-mode-enable-part-face nil))
+  ;;         ad-do-it)
+  ;;     ad-do-it))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -269,20 +271,20 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(clean-aindent-mode t)
  '(css-indent-offset 2)
- '(exec-path-from-shell-check-startup-files nil)
- '(flycheck-javascript-standard-executable "semistandard")
+ ;; '(exec-path-from-shell-check-startup-files nil)
+ ;; '(flycheck-javascript-standard-executable "semistandard")
  '(helm-boring-file-regexp-list
    (quote
     ("\\.o$" "~$" "\\.bin$" "\\.lbin$" "\\.so$" "\\.a$" "\\.ln$" "\\.blg$" "\\.bbl$" "\\.elc$" "\\.lof$" "\\.glo$" "\\.idx$" "\\.lot$" "\\.svn$" "\\.hg$" "\\.git$" "\\.bzr$" "CVS$" "_darcs$" "_MTN$" "\\.fmt$" "\\.tfm$" "\\.class$" "\\.fas$" "\\.lib$" "\\.mem$" "\\.x86f$" "\\.sparcf$" "\\.dfsl$" "\\.pfsl$" "\\.d64fsl$" "\\.p64fsl$" "\\.lx64fsl$" "\\.lx32fsl$" "\\.dx64fsl$" "\\.dx32fsl$" "\\.fx64fsl$" "\\.fx32fsl$" "\\.sx64fsl$" "\\.sx32fsl$" "\\.wx64fsl$" "\\.wx32fsl$" "\\.fasl$" "\\.ufsl$" "\\.fsl$" "\\.dxl$" "\\.lo$" "\\.la$" "\\.gmo$" "\\.mo$" "\\.toc$" "\\.aux$" "\\.cp$" "\\.fn$" "\\.ky$" "\\.pg$" "\\.tp$" "\\.vr$" "\\.cps$" "\\.fns$" "\\.kys$" "\\.pgs$" "\\.tps$" "\\.vrs$" "\\.pyc$" "\\.pyo$" "\\.aux$")))
  '(helm-ff-skip-boring-files t)
- '(indent-tabs-mode nil)
+ ;; '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
- '(js2-indent-switch-body t)
+ ;; '(js2-indent-switch-body t)
  '(visual-line-fringe-indicators (quote (left-curly-arrow right-curly-arrow))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+;;  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
