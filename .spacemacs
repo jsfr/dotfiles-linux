@@ -30,8 +30,6 @@ values."
      syntax-checking
      version-control
      react
-     javascript
-     html
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -240,26 +238,6 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; ;; disable jshint since we prefer eslint checking
-  ;; ;; disable json-jsonlist checking for json files
-  ;; (setq-default flycheck-disabled-checkers '(javascript-jshint))
-
-  ;; ;; adjust indents for web-mode to 2 spaces
-  ;; (defun my-web-mode-hook ()
-  ;;   "Hooks for Web mode. Adjust indents"
-  ;; ;;; http://web-mode.org/
-  ;;   (setq web-mode-markup-indent-offset 2)
-  ;;   (setq web-mode-css-indent-offset 2)
-  ;;   (setq web-mode-code-indent-offset 2))
-  ;; (add-hook 'web-mode-hook  'my-web-mode-hook)
-
-  ;; ;; for better jsx syntax-highlighting in web-mode
-  ;; ;; - courtesy of Patrick @halbtuerke
-  ;; (defadvice web-mode-highlight-part (around tweak-jsx activate)
-  ;;   (if (equal web-mode-content-type "jsx")
-  ;;       (let ((web-mode-enable-part-face nil))
-  ;;         ad-do-it)
-  ;;     ad-do-it))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -272,19 +250,10 @@ you should place your code here."
  '(clean-aindent-mode t)
  '(css-indent-offset 2)
  ;; '(exec-path-from-shell-check-startup-files nil)
- ;; '(flycheck-javascript-standard-executable "semistandard")
  '(helm-boring-file-regexp-list
    (quote
     ("\\.o$" "~$" "\\.bin$" "\\.lbin$" "\\.so$" "\\.a$" "\\.ln$" "\\.blg$" "\\.bbl$" "\\.elc$" "\\.lof$" "\\.glo$" "\\.idx$" "\\.lot$" "\\.svn$" "\\.hg$" "\\.git$" "\\.bzr$" "CVS$" "_darcs$" "_MTN$" "\\.fmt$" "\\.tfm$" "\\.class$" "\\.fas$" "\\.lib$" "\\.mem$" "\\.x86f$" "\\.sparcf$" "\\.dfsl$" "\\.pfsl$" "\\.d64fsl$" "\\.p64fsl$" "\\.lx64fsl$" "\\.lx32fsl$" "\\.dx64fsl$" "\\.dx32fsl$" "\\.fx64fsl$" "\\.fx32fsl$" "\\.sx64fsl$" "\\.sx32fsl$" "\\.wx64fsl$" "\\.wx32fsl$" "\\.fasl$" "\\.ufsl$" "\\.fsl$" "\\.dxl$" "\\.lo$" "\\.la$" "\\.gmo$" "\\.mo$" "\\.toc$" "\\.aux$" "\\.cp$" "\\.fn$" "\\.ky$" "\\.pg$" "\\.tp$" "\\.vr$" "\\.cps$" "\\.fns$" "\\.kys$" "\\.pgs$" "\\.tps$" "\\.vrs$" "\\.pyc$" "\\.pyo$" "\\.aux$")))
  '(helm-ff-skip-boring-files t)
- ;; '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
- ;; '(js2-indent-switch-body t)
+ '(js2-indent-switch-body t)
  '(visual-line-fringe-indicators (quote (left-curly-arrow right-curly-arrow))))
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
-;;  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

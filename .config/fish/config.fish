@@ -2,41 +2,41 @@ for file in ~/.config/fish/conf.d/*.fish
     source $file
 end
 
-function grc.wrap -a executable
-  set executable $argv[1]
-
-  if test (count $argv) -gt 1
-    set arguments $argv[2..(count $argv)]
-  else
-    set arguments
-  end
-
-  set optionsvariable "grcplugin_"$executable
-  set options $$optionsvariable
-
-  command grc -es $executable $options $arguments
-end
-
-if type -q grc
-  set -l execs cat cvs df diff dig gcc g++ ls ifconfig \
-               make mount mtr netstat ping ps tail traceroute \
-               wdiff
-
-  if set -q grc_plugin_execs
-    set execs $grc_plugin_execs
-  end
-
-  for executable in $execs
-    if type -q $executable
-      function $executable --inherit-variable executable --wraps=$executable
-        grc.wrap $executable $argv
-      end
-    end
-  end
-else
-  echo 'You need to install grc!'
-end
-
+# define aliases
 alias aurau "sudo aur; sudo aura -Syu; sudo aura -Akua"
 alias aurac "sudo aura -Oj; and sudo paccache -r; and sudo paccache -ruk0; and sudo pacman-optimize"
 alias auras "sudo reflector --verbose -l 25 --sort rate --save /etc/pacman.d/mirrorlist"
+
+# Source /etc/profile and ~/.profile using dash
+env -i HOME=$HOME dash -l -c 'export -p' | sed -e "/PWD/d; /PATH/s/'//g;/PATH/s/:/ /g;s/=/ /;s/^export/set -x/" | source
+
+# REUSE ENVIRONMENT VARIABLES FROM ~/.zsh_environment
+egrep "^export " ~/.zsh_environment | while read e
+    set var (echo $e | sed -E "s/^export ([A-Z0-9_]+)=(.*)\$/\1/")
+    set value (echo $e | sed -E "s/^export ([A-Z0-9_]+)=(.*)\$/\2/")
+    # remove surrounding quotes if existing
+    set value (echo $value | sed -E "s/^\"(.*)\"\$/\1/")
+    if test $var = "PATH"
+        # replace ":" by spaces. this is how PATH looks for Fish
+        set value (echo $value | sed -E "s/:/ /g")
+        # use eval because we need to expand the value
+        eval set -xg $var $value
+        continue
+    end
+    # evaluate variables. we can use eval because we most likely just used "$var"
+    set value (eval echo $value)
+    switch $value
+    case '`*`';
+        set NO_QUOTES (echo $value | sed -E "s/^\`(.*)\`\$/\1/")
+        set -x $var (eval $NO_QUOTES)
+    case '*'
+        set -xg $var $value
+    end
+end
+
+# start X at login
+if status --is-login
+    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
+        exec startx -- -keeptty
+    end
+end
