@@ -14,29 +14,27 @@
 [difftool]
 	prompt = false
 [alias]
-    yolo = "!git commit -m \"YOLO: `curl -s http://whatthecommit.com/index.txt`\""
-    l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
     a = add
     aa = add -A
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
     c = commit --verbose
     cm = commit --verbose -m
-    d = diff
-    ds = diff --stat
-    dc = diff --cached
-    s = status -s
     co = checkout
-    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
-    la = "!git config -l | grep alias | cut -c 7-"
+    d = diff
+    dc = diff --cached
+    f = fetch
+    l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    pl = pull
     plr = pull --rebase
     pu = push
     pua = push --all
-    f = fetch
-    pl = pull
+    s = status -s
     spp = "!git stash && git pull --rebase && git stash pop"
     st = stash
     stl = stash list --date=local
     stp = stash pop
-	up = !git fetch && git rebase --autostash FETCH_HEAD
+    up = "!git fetch && git rebase --autostash FETCH_HEAD"
+    yolo = "!git commit -m \"YOLO: `curl -s http://whatthecommit.com/index.txt`\""
 [core]
 	editor = nvim
 	autocrlf = input
