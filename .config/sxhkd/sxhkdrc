@@ -23,11 +23,11 @@ XF86AudioMute
 
 # Lock desktop
 ctrl + alt + l
-    i3lock -d -c 000000
+    fuzzy-lock
 
 # Take screenshot (Either entire screen or region/window)
 {_,ctrl +} Print
-    maim {_,-s} ~/`date +%F_%H%M%S_%N`.png
+    maim {_,-s} ~/(date +%F_%H%M%S_%N).png
 
 # Show clipboard manager
 ctrl + alt + h
