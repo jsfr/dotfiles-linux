@@ -1,16 +1,20 @@
+# source conf.d directory
 for file in ~/.config/fish/conf.d/*.fish
     source $file
 end
+
+# remove welcome message
+set fish_greeting ""
 
 # define aliases
 alias aurau "sudo aur; sudo aura -Syu; sudo aura -Akua"
 alias aurac "sudo aura -Oj; and sudo paccache -r; and sudo paccache -ruk0; and sudo pacman-optimize"
 alias auras "sudo reflector --verbose -l 25 --sort rate --save /etc/pacman.d/mirrorlist"
 
-# Source /etc/profile and ~/.profile using dash
+# source /etc/profile and ~/.profile using dash
 env -i HOME=$HOME dash -l -c 'export -p' | sed -e "/PWD/d; /PATH/s/'//g;/PATH/s/:/ /g;s/=/ /;s/^export/set -x/" | source
 
-# REUSE ENVIRONMENT VARIABLES FROM ~/.zsh_environment
+# reuse environment variables from ~/.zsh_environment
 egrep "^export " ~/.zsh_environment | while read e
     set var (echo $e | sed -E "s/^export ([A-Z0-9_]+)=(.*)\$/\1/")
     set value (echo $e | sed -E "s/^export ([A-Z0-9_]+)=(.*)\$/\2/")

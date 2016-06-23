@@ -9,6 +9,7 @@
 	default = simple
 [diff]
 	tool = kdiff3
+    compactionHeuristic = true
 [merge]
 	tool = kdiff3
 [difftool]
