@@ -88,3 +88,5 @@ myZkbd() {
 
 # If at TTY1 start X else bind keys
 ([[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx) || myZkbd
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

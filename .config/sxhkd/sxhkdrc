@@ -35,7 +35,7 @@ ctrl + alt + h
 
 # Show launcher for commands/windows
 super + {d,w}
-    rofi -show {run, window} -location 2 -width 100 -font Hack\ 18
+    rofi -show {run,window} -location 2 -width 100 -font Hack\ 9 -hide-scrollbar -levenshtein-sort -dpi 192
 
 # Launch terminal
 super + Return

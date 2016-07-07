@@ -18,11 +18,6 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      auto-completion
      emacs-lisp
      git
@@ -31,7 +26,7 @@ values."
      (syntax-checking :variables syntax-checking-enable-tooltips nil)
      react
      dockerfile
-     unimpared
+     html
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -240,26 +235,44 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; (setq-default
-  ;;  ;; js2-mode
-  ;;  js2-basic-offset 2
-  ;;  ;; web-mode
-  ;;  css-indent-offset 2
-  ;;  web-mode-markup-indent-offset 2
-  ;;  web-mode-css-indent-offset 2
-  ;;  web-mode-code-indent-offset 2
-  ;;  web-mode-attr-indent-offset 2)
 
-  ;; (with-eval-after-load 'web-mode
-  ;;   (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
-  ;;   (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
-  ;;   (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+  ;; (push '("\\.js\\'" . react-mode) auto-mode-alist)
+  ;; (defun my/use-eslint-from-node-modules ()
+  ;;   (let* ((root (locate-dominating-file
+  ;;                 (or (buffer-file-name) default-directory)
+  ;;                 "node_modules"))
+  ;;          (eslint (and root
+  ;;                       (expand-file-name "node_modules/eslint/bin/eslint.js"
+  ;;                                         root))))
+  ;;     (when (file-executable-p eslint)
+  ;;       (setq-local flycheck-javascript-eslint-executable eslint))))
+  ;; (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
+  ;; (setenv "PATH" (concat (getenv "PATH") ":/home/jens/bin/node_modules/bin"))
+  ;; (setq exec-path (append exec-path '("/home/jens/bin/node_modules/bin")))
 
-  (push '("\\.js\\'" . react-mode) auto-mode-alist)
+  ;; JSX in `web-mode`
+  (add-to-list 'auto-mode-alist '("\\.jsx?" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
-  (setenv "PATH" (concat (getenv "PATH") ":/home/jens/bin/node_modules/bin"))
-  (setq exec-path (append exec-path '("/home/jens/bin/node_modules/bin")))
+  ;; (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+  ;; (add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
+  ;; (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(js2-missing-semi-one-line-override t)
+ '(js2-strict-missing-semi-warning nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

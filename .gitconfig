@@ -1,19 +1,19 @@
 [user]
-	name = Jens Fredskov
-	email = jensfredskov@protonmail.ch
+    name = Jens Fredskov
+    email = jensfredskov@protonmail.ch
 [credential]
-	helper = cache
+    helper = cache
 [color]
-	ui = true
+    ui = true
 [push]
-	default = simple
+    default = simple
 [diff]
-	tool = kdiff3
+    tool = kdiff3
     compactionHeuristic = true
 [merge]
-	tool = kdiff3
+    tool = kdiff3
 [difftool]
-	prompt = false
+    prompt = false
 [alias]
     a = add
     aa = add -A
@@ -37,9 +37,9 @@
     up = "!git fetch && git rebase --autostash FETCH_HEAD"
     yolo = "!git commit -m \"YOLO: `curl -s http://whatthecommit.com/index.txt`\""
 [core]
-	editor = nvim
-	autocrlf = input
+    editor = nvim
+    autocrlf = input
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
