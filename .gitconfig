@@ -8,10 +8,9 @@
 [push]
     default = simple
 [diff]
-    tool = kdiff3
-    compactionHeuristic = true
+    tool = p4merge
 [merge]
-    tool = kdiff3
+    tool =p4merge
 [difftool]
     prompt = false
 [alias]
@@ -30,7 +29,6 @@
     pu = push
     pua = push --all
     s = status -s
-    spp = "!git stash && git pull --rebase && git stash pop"
     st = stash
     stl = stash list --date=local
     stp = stash pop
