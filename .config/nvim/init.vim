@@ -15,7 +15,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'tpope/vim-repeat'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'airblade/vim-rooter'
 Plug 'jiangmiao/auto-pairs'
@@ -87,6 +86,8 @@ set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set magic               " Use 'magic' patterns (extended regular expressions).
 set hidden              " Don't unload buffers when they are abandoned
 set clipboard^=unnamedplus " System clipboard
+set spelllang=en
+set spellfile=$HOME/.config/nvim/spell/en.utf-8.add
 set timeoutlen=250                  " Shorter timeout length
 set notimeout
 autocmd InsertEnter * set timeout   " Enable timeout in insert
