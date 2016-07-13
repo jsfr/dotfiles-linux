@@ -1,43 +1,69 @@
 [user]
-    name = Jens Fredskov
-    email = jensfredskov@protonmail.ch
+  name = Jens Fredskov
+  email = jensfredskov@protonmail.ch
 [credential]
-    helper = cache
-[color]
-    ui = true
+  helper = cache
 [push]
-    default = simple
+  default = simple
 [diff]
-    tool = p4merge
+  tool = p4merge
+  compactionHeuristic = true
 [merge]
-    tool =p4merge
+  tool =p4merge
 [difftool]
-    prompt = false
+  prompt = false
 [alias]
-    a = add
-    aa = add -A
-    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
-    c = commit --verbose
-    cm = commit --verbose -m
-    co = checkout
-    d = diff
-    dc = diff --cached
-    f = fetch
-    l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-    pl = pull
-    plr = pull --rebase
-    pu = push
-    pua = push --all
-    s = status -s
-    st = stash
-    stl = stash list --date=local
-    stp = stash pop
-    up = "!git fetch && git rebase --autostash FETCH_HEAD"
-    yolo = "!git commit -m \"YOLO: `curl -s http://whatthecommit.com/index.txt`\""
+  c = commit
+  up = "!git fetch && git rebase --autostash FETCH_HEAD"
+  p = push
+  s = status -s
+  co = checkout
+  a = add
+  aa = add -A
+  d = diff
+  dc = diff --cached
+  df = diff --color --color-words --abbrev
+  f = fetch
+  l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  yolo = "!git commit -m \"YOLO: `curl -s http://whatthecommit.com/index.txt`\""
 [core]
-    editor = nvim
-    autocrlf = input
+  editor = nvim
+  autocrlf = input
+  # insanely beautiful diffs
+  pager = diff-so-fancy | less --tabs=2 -RFX
 [filter "lfs"]
-    clean = git-lfs clean %f
-    smudge = git-lfs smudge %f
-    required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+
+# so much color
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[color]
+  ui = always
+[color "diff"]
+  meta = yellow bold
+  commit = green bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 22"
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "status"]
+  changed = yellow
+  untracked = cyan
+
+# correct typos
+[help]
+  autocorrect = 1

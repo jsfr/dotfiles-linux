@@ -26,7 +26,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
 
 " JS/Web plugs
 Plug 'alvan/vim-closetag'
@@ -34,10 +35,6 @@ Plug 'benjie/neomake-local-eslint.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-
-" Rust plugs
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
 call plug#end()
 
 set background=dark
@@ -120,21 +117,36 @@ nnoremap <leader>w- :split<CR>
 nnoremap <leader>w\| <C-W>\|
 nnoremap <leader>w_ <C-W>_
 nnoremap <leader>wq :close<CR>
+
 nnoremap <leader>pf :GFiles<CR>
+nnoremap <leader>pt :NERDTreeToggle<CR>
+
 nnoremap <leader>ff :Files ~<CR>
 nnoremap <leader>fr :History<CR>
 nnoremap <leader>fs :w<CR>
+
 nnoremap <leader>ln :lnext<CR>
 nnoremap <leader>lp :lprev<<CR>
 nnoremap <leader>ll :ll<CR>
 nnoremap <leader>lo :lopen<CR>
+
 nnoremap <leader><tab> :b#<CR>
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bb :Buffers<CR>
 
+command! PU PlugUpdate | PlugUpgrade
+nnoremap <leader>_r :source $MYVIMRC<CR>
+nnoremap <leader>_d :e $MYVIMRC<CR>
+nnoremap <leader>_pi :PlugInstall<CR>
+nnoremap <leader>_pu :PU<CR>
+nnoremap <leader>_pc :PlugClean<CR>
+
+
 " See http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity
+" nnoremap <leader>_r :source $MYVIMRC<CR>
+" nnoremap <leader>_d :
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
@@ -211,12 +223,3 @@ let g:NERDTrimTrailingWhitespace = 1 " Enable trimming of trailing whitespace wh
 
 " vim-surround setup
 xmap s <Plug>VSurround
-
-" vim-sneak setup
-let g:sneak#streak = 1
-xmap . <Plug>SneakNext
-nmap . <Plug>SneakNext
-omap . <Plug>SneakNext
-
-" Rust setup
-let g:rustfmt_autosave = 1 " Format on saving
