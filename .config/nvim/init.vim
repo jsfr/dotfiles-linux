@@ -16,7 +16,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'airblade/vim-rooter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -28,6 +27,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " JS/Web plugs
 Plug 'alvan/vim-closetag'
@@ -35,6 +35,10 @@ Plug 'benjie/neomake-local-eslint.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+
+" Rust plugs
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
 set background=dark
@@ -177,8 +181,6 @@ if has("persistent_undo")
     set undodir=~/.undodir/
     set undofile
 endif
-
-let g:rooter_change_directory_for_non_project_files = 'home' " Change to home directory from non-project files
 
 " JS(X)/Web setup
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js" " Enable vim-closetag
