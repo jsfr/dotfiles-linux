@@ -165,11 +165,10 @@ for_window [title="database.kdbx - KeePass"] move scratchpad
 exec --no-startup-id copyq
 exec --no-startup-id dunst
 exec --no-startup-id unclutter --exclude-root -b
-# exec --no-startup-id xinput --set-prop ELECOM\ ELECOM\ TrackBall\ Mouse 'Device Accel Constant Deceleration' 2 && xset m 5 4
-# exec --no-startup-id xinput --set-prop Logitech\ M570 'Device Accel Constant Deceleration' 2 && xset m 5 4
-# exec --no-startup-id srandrd display_handler
 exec --no-startup-id sxhkd
 exec --no-startup-id franz
 exec --no-startup-id SpiderOakONE
+exec --no-startup-id turtl
+exec --no-startup-id keepass
 exec_always --no-startup-id (pgrep redshift || redshift -l 55.4:12.25 -m vidmode)
 exec_always --no-startup-id feh --bg-scale "$HOME/SpiderOak Hive/wallpapers/nature.jpg"

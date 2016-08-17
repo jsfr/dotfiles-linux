@@ -28,6 +28,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'qpkorr/vim-bufkill'
 
 " JS/Web plugs
 Plug 'alvan/vim-closetag'
@@ -38,6 +39,7 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 
 " Rust plugs
 Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
@@ -124,6 +126,7 @@ nnoremap <leader>wq :close<CR>
 
 nnoremap <leader>pf :GFiles<CR>
 nnoremap <leader>pt :NERDTreeToggle<CR>
+nnoremap <leader>p= :NERDTreeFind<CR>
 
 nnoremap <leader>ff :Files ~<CR>
 nnoremap <leader>fr :History<CR>
@@ -135,7 +138,7 @@ nnoremap <leader>ll :ll<CR>
 nnoremap <leader>lo :lopen<CR>
 
 nnoremap <leader><tab> :b#<CR>
-nnoremap <leader>bd :bd<CR>
+nnoremap <leader>bd :BD<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bb :Buffers<CR>
@@ -225,3 +228,6 @@ let g:NERDTrimTrailingWhitespace = 1 " Enable trimming of trailing whitespace wh
 
 " vim-surround setup
 xmap s <Plug>VSurround
+
+" rust setup
+let g:rustfmt_autosave = 1
