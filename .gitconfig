@@ -16,7 +16,7 @@
   c = commit
   up = "!git fetch && git rebase --autostash FETCH_HEAD"
   p = push
-  s = status -s
+  s = status -sb
   co = checkout
   a = add
   aa = add -A

@@ -29,6 +29,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'qpkorr/vim-bufkill'
+Plug 'mileszs/ack.vim'
 
 " JS/Web plugs
 Plug 'alvan/vim-closetag'
@@ -231,3 +232,7 @@ xmap s <Plug>VSurround
 
 " rust setup
 let g:rustfmt_autosave = 1
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
