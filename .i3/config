@@ -159,7 +159,9 @@ new_window pixel 2px
 hide_edge_borders vertical
 
 # Window rules
-for_window [title="database.kdbx - KeePass"] move scratchpad
+# for_window [title="database.kdbx - KeePass"] move scratchpad
+for_window [class="Turl"] move container to workspace 10
+for_window [class="Franz"] move container to workspace 10
 
 # Startup applications
 exec --no-startup-id copyq
@@ -169,6 +171,6 @@ exec --no-startup-id sxhkd
 exec --no-startup-id franz
 exec --no-startup-id SpiderOakONE
 exec --no-startup-id turtl
-exec --no-startup-id keepass
+exec --no-startup-id enpass
 exec_always --no-startup-id (pgrep redshift || redshift -l 55.4:12.25 -m vidmode)
 exec_always --no-startup-id feh --bg-scale "$HOME/SpiderOak Hive/wallpapers/nature.jpg"

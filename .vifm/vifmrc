@@ -1,5 +1,0 @@
-colorscheme matrix
-set vicmd=nvim
-set incsearch
-filetype *.sh nvim
-filetype * xdg-open
