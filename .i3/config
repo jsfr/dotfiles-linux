@@ -159,8 +159,6 @@ new_window pixel 2px
 hide_edge_borders vertical
 
 # Window rules
-# for_window [title="database.kdbx - KeePass"] move scratchpad
-for_window [class="Turl"] move container to workspace 10
 for_window [class="Franz"] move container to workspace 10
 
 # Startup applications

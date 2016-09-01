@@ -118,14 +118,16 @@ nnoremap <leader>wr <C-W>R
 nnoremap <leader>wt <C-W>T
 nnoremap <leader>wo <C-W>o
 nnoremap <leader>wq <C-w>q
+nnoremap <leader>wc <C-w>q
+nnoremap <leader>wd <C-w>q
 nnoremap <leader>ww :Windows<CR>
 nnoremap <leader>w/ :vsplit<CR>
 nnoremap <leader>w- :split<CR>
 nnoremap <leader>w\| <C-W>\|
 nnoremap <leader>w_ <C-W>_
-nnoremap <leader>wq :close<CR>
 
 nnoremap <leader>pf :GFiles<CR>
+nnoremap <leader>pg :GFiles?<CR>
 nnoremap <leader>pt :NERDTreeToggle<CR>
 nnoremap <leader>p= :NERDTreeFind<CR>
 
@@ -179,6 +181,9 @@ nnoremap U :UndotreeShow<CR>:UndotreeFocus<CR>
 
 " Disable macro recording on q
 map q <Nop>
+
+" Save current buffer as root
+command! SaveAsRoot w !sudo tee %
 
 " Add persistent undo
 if has("persistent_undo")

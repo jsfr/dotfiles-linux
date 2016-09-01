@@ -14,6 +14,9 @@ alias auras "sudo reflector --verbose -l 25 --sort rate --save /etc/pacman.d/mir
 # source /etc/profile and ~/.profile using dash
 env -i HOME=$HOME dash -l -c 'export -p' | sed -e "/PWD/d; /PATH/s/'//g;/PATH/s/:/ /g;s/=/ /;s/^export/set -x/" | source
 
+# set up fuck alias
+eval (thefuck --alias | tr '\n' ';')
+
 # reuse environment variables from ~/.zsh_environment
 egrep "^export " ~/.zsh_environment | while read e
     set var (echo $e | sed -E "s/^export ([A-Z0-9_]+)=(.*)\$/\1/")
