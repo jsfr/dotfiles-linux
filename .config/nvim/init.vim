@@ -26,14 +26,15 @@ Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'qpkorr/vim-bufkill'
 Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-vinegar'
+Plug 'takac/vim-hardtime'
+Plug 'justinmk/vim-sneak'
 
 " JS/Web plugs
 Plug 'alvan/vim-closetag'
-Plug 'benjie/neomake-local-eslint.vim'
+Plug 'jaawerth/neomake-local-eslint-first'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
@@ -67,12 +68,8 @@ set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
 set nostartofline       " Do not jump to first character with page commands.
 set display+=lastline   " Show latest command/pressed keys (i think)
-if !&scrolloff
-  set scrolloff=3       " Show next 3 lines while scrolling.
-endif
-if !&sidescrolloff
-  set sidescrolloff=5   " Show next 5 columns while side-scrolling.
-endif
+set scrolloff=10        " Show next 10 lines while scrolling.
+set sidescrolloff=10    " Show next 10 columns while side-scrolling.
 " Tell Vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
 if &listchars ==# 'eol:$'
@@ -120,20 +117,18 @@ nnoremap <leader>wo <C-W>o
 nnoremap <leader>wq <C-w>q
 nnoremap <leader>wc <C-w>q
 nnoremap <leader>wd <C-w>q
+nnoremap <leader>w<tab> <C-w>p
 nnoremap <leader>ww :Windows<CR>
 nnoremap <leader>w/ :vsplit<CR>
 nnoremap <leader>w- :split<CR>
 nnoremap <leader>w\| <C-W>\|
 nnoremap <leader>w_ <C-W>_
 
-nnoremap <leader>pf :GFiles<CR>
-nnoremap <leader>pg :GFiles?<CR>
-nnoremap <leader>pt :NERDTreeToggle<CR>
-nnoremap <leader>p= :NERDTreeFind<CR>
-
 nnoremap <leader>ff :Files ~<CR>
 nnoremap <leader>fr :History<CR>
 nnoremap <leader>fs :w<CR>
+nnoremap <leader>fp :GFiles<CR>
+nnoremap <leader>fg :GFiles?<CR>
 
 nnoremap <leader>ln :lnext<CR>
 nnoremap <leader>lp :lprev<<CR>
@@ -155,8 +150,6 @@ nnoremap <leader>_pc :PlugClean<CR>
 
 
 " See http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity
-" nnoremap <leader>_r :source $MYVIMRC<CR>
-" nnoremap <leader>_d :
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
@@ -166,11 +159,11 @@ vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
 " Stay out of insert
-inoremap <Left>  <NOP>
-inoremap <Right> <NOP>
-inoremap <Up>    <NOP>
-inoremap <Down>  <NOP>
 inoremap fd <Esc>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
 
 " Fix st issue with DEL key
 map <F1> <del>
@@ -241,3 +234,9 @@ let g:rustfmt_autosave = 1
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" enable hardtime
+let g:hardtime_default_on = 1
+let g:hardtime_ignore_quickfix = 1
+let g:hardtime_maxcount = 2
+nnoremap <leader>h :HardTimeToggle<CR>

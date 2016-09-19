@@ -158,15 +158,12 @@ client.urgent #d33682 #d33682 #fdf6e3 #dc322f
 new_window pixel 2px
 hide_edge_borders vertical
 
-# Window rules
-for_window [class="Franz"] move container to workspace 10
-
 # Startup applications
 exec --no-startup-id copyq
 exec --no-startup-id dunst
 exec --no-startup-id unclutter --exclude-root -b
 exec --no-startup-id sxhkd
-exec --no-startup-id franz
+exec --no-startup-id rambox
 exec --no-startup-id SpiderOakONE
 exec --no-startup-id turtl
 exec --no-startup-id enpass
