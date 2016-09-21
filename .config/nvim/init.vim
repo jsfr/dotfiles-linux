@@ -31,6 +31,7 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'takac/vim-hardtime'
 Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-eunuch'
 
 " JS/Web plugs
 Plug 'alvan/vim-closetag'
@@ -240,3 +241,7 @@ let g:hardtime_default_on = 1
 let g:hardtime_ignore_quickfix = 1
 let g:hardtime_maxcount = 2
 nnoremap <leader>h :HardTimeToggle<CR>
+let g:list_of_normal_keys = ["h", "j", "k", "l"]
+let g:list_of_visual_keys = ["h", "j", "k", "l"]
+let g:list_of_insert_keys = []
+let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
