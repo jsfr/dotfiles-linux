@@ -32,17 +32,22 @@ Plug 'tpope/vim-vinegar'
 Plug 'takac/vim-hardtime'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-eunuch'
+Plug 'mtth/scratch.vim'
+Plug 'myusuf3/numbers.vim'
 
-" JS/Web plugs
+" JS/Web
 Plug 'alvan/vim-closetag'
 Plug 'jaawerth/neomake-local-eslint-first'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 
-" Rust plugs
-Plug 'rust-lang/rust.vim'
+" TOML
 Plug 'cespare/vim-toml'
+
+" Rust
+Plug 'rust-lang/rust.vim'
+Plug 'sebastianmarkow/deoplete-rust'
 
 call plug#end()
 
@@ -177,7 +182,7 @@ nnoremap U :UndotreeShow<CR>:UndotreeFocus<CR>
 map q <Nop>
 
 " Save current buffer as root
-command! SaveAsRoot w !sudo tee %
+" command! SaveAsRoot w !sudo tee %
 
 " Add persistent undo
 if has("persistent_undo")
@@ -215,9 +220,17 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 " Neomake setup
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_jsx_enabled_makers = ['eslint']
-autocmd! BufWritePost,BufEnter *.js Neomake
+if findfile('.eslintrc', '.;') ==# ''
+  let g:neomake_javascript_enabled_makers = []
+  let g:neomake_jsx_enabled_makers = []
+else
+  let g:neomake_javascript_enabled_makers = ['eslint']
+  let g:neomake_jsx_enabled_makers = ['eslint']
+  " autocmd! BufWritePost,BufEnter *.js Neomake
+endif
+let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='~/repos/rust/src/'
+autocmd! BufWritePost * Neomake
 
 " NERDCommenter setup
 let g:NERDSpaceDelims = 1            " Add spaces after comment delimiters by default
@@ -228,9 +241,6 @@ let g:NERDTrimTrailingWhitespace = 1 " Enable trimming of trailing whitespace wh
 
 " vim-surround setup
 xmap s <Plug>VSurround
-
-" rust setup
-let g:rustfmt_autosave = 1
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'

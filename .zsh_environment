@@ -11,3 +11,4 @@ export PATH=$HOME/bin:$HOME/bin/node_modules/bin:$HOME/go/bin:$PATH
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 export ZSH_CACHE_DIR=$HOME/.cache
+export RUST_SRC_PATH=$HOME/repos/rust/src/
