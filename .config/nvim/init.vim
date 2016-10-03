@@ -34,6 +34,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-eunuch'
 Plug 'mtth/scratch.vim'
 Plug 'myusuf3/numbers.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 " JS/Web
 Plug 'alvan/vim-closetag'
@@ -100,10 +101,12 @@ set notimeout
 autocmd InsertEnter * set timeout   " Enable timeout in insert
 autocmd InsertLeave * set notimeout " Disable timeout in other modes
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-endif
+" Use <CR> or <esc> to clear the highlighting of :set hlsearch.
+nnoremap <silent> <esc> :noh<CR><esc>
+nnoremap <silent> <CR> :noh<CR><CR>
+" if maparg('<C-L>', 'n') ==# ''
+"   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+" endif
 
 let mapleader = " "
 
@@ -112,10 +115,10 @@ nnoremap ; :
 vnoremap ; :
 
 " Spacemacs inspired keybings
-nnoremap <leader>wj <C-W><C-J>
-nnoremap <leader>wk <C-W><C-K>
-nnoremap <leader>wl <C-W><C-L>
-nnoremap <leader>wh <C-W><C-H>
+" nnoremap <leader>wj <C-W><C-J>
+" nnoremap <leader>wk <C-W><C-K>
+" nnoremap <leader>wl <C-W><C-L>
+" nnoremap <leader>wh <C-W><C-H>
 nnoremap <leader>w= <C-W>=
 nnoremap <leader>wr <C-W>R
 nnoremap <leader>wt <C-W>T
@@ -255,3 +258,21 @@ let g:list_of_normal_keys = ["h", "j", "k", "l"]
 let g:list_of_visual_keys = ["h", "j", "k", "l"]
 let g:list_of_insert_keys = []
 let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:hardtime_ignore_buffer_patterns = [ "undotree*" ]
+
+" sneak setup
+let g:sneak#s_next = 1
+"replace 'f' with 1-char Sneak
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+"replace 't' with 1-char Sneak
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T

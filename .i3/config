@@ -87,6 +87,12 @@ bindcode $super+$shift+17 move container to workspace 8
 bindcode $super+$shift+18 move container to workspace 9
 bindcode $super+$shift+19 move container to workspace 10
 
+# move workspace to other screen
+bindcode $super+59 move workspace to output left
+bindcode $super+60 move workspace to output right
+bindcode $super+34 move workspace to output left
+bindcode $super+35 move workspace to output right
+
 # reload the configuration file
 bindsym $super+$shift+C reload
 
