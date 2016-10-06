@@ -1,25 +1,25 @@
 # make sxhkd reload its configuration files:
 super + Escape
-    pkill -USR1 -x sxhkd; and notify-send "sxhkd reloaded!"
+    pkill -USR1 -x sxhkd && notify-send "sxhkd reloaded!"
 
 # Adjust brightness
 {_,shift + ,super + }XF86MonBrightness{Up,Down}
-    xbacklight {-inc 5,-inc 15,-set 100,-dec 5,-dec 15,-set 0}; and pkill -RTMIN+12 i3blocks
+    xbacklight {-inc 5,-inc 15,-set 100,-dec 5,-dec 15,-set 0} && pkill -RTMIN+12 i3blocks
 
 # Adjust volume
 {_, shift +, super +}XF86Audio{Raise,Lower}Volume
-    amixer set Master playback {5%+, 15%+, 100%, 5%-, 15%-, 0%}; and pkill -RTMIN+10 i3blocks
+    amixer set Master playback {5%+, 15%+, 100%, 5%-, 15%-, 0%} && pkill -RTMIN+10 i3blocks
 
 XF86Audio{Play, Next, Prev}
     playerctl {play-pause, next, previous}
 
 # Adjust volume
 super + shift + v : {button4,button5,k,j,m}
-    amixer set Master playback {1%+,1%-,1%+,1%-,0%}; and pkill -RTMIN+10 i3block
+    amixer set Master playback {1%+,1%-,1%+,1%-,0%} && pkill -RTMIN+10 i3block
 
 # Mute/unmute volume
 XF86AudioMute
-    amixer set Master toggle; and pkill -RTMIN+10 i3blocks
+    amixer set Master toggle && pkill -RTMIN+10 i3blocks
 
 # Lock desktop
 ctrl + alt + l
@@ -39,4 +39,4 @@ super + {d,w}
 
 # Launch terminal
 super + Return
-    st -e dash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session"
+    st -e dash -c "tmux -q has-session >/dev/null 2>&1 && exec tmux attach-session -d || exec tmux new-session"
