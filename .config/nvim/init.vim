@@ -169,6 +169,7 @@ nnoremap <silent> p p`]
 
 " Stay out of insert
 inoremap fd <Esc>
+inoremap jj <Esc>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 inoremap <Up> <NOP>

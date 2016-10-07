@@ -1,3 +1,16 @@
+# install fisherman if not present
+if not functions -q fisher; eval (curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher); end
+
+# define custom keybindings
+function fish_user_key_bindings
+  bind \ej history-search-forward
+  bind \ek history-search-backward
+  bind \el forward-char
+  bind \eh backward-char
+  bind \ew forward-word
+  bind \eb backward-word
+end
+
 # remove welcome message
 set fish_greeting ""
 
