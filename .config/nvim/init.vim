@@ -26,13 +26,11 @@ Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'qpkorr/vim-bufkill'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'takac/vim-hardtime'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-eunuch'
-Plug 'mtth/scratch.vim'
 Plug 'myusuf3/numbers.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -115,10 +113,6 @@ nnoremap ; :
 vnoremap ; :
 
 " Spacemacs inspired keybings
-" nnoremap <leader>wj <C-W><C-J>
-" nnoremap <leader>wk <C-W><C-K>
-" nnoremap <leader>wl <C-W><C-L>
-" nnoremap <leader>wh <C-W><C-H>
 nnoremap <leader>w= <C-W>=
 nnoremap <leader>wr <C-W>R
 nnoremap <leader>wt <C-W>T
@@ -145,7 +139,7 @@ nnoremap <leader>ll :ll<CR>
 nnoremap <leader>lo :lopen<CR>
 
 nnoremap <leader><tab> :b#<CR>
-nnoremap <leader>bd :BD<CR>
+nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bb :Buffers<CR>
