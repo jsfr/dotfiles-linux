@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-[[ -f ~/.profil ]] && . ~/.profile
+[[ -f ~/.profile ]] && . ~/.profile
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 

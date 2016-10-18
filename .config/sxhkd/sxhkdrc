@@ -23,7 +23,7 @@ XF86AudioMute
 
 # Lock desktop
 ctrl + alt + l
-    fuzzy-lock
+    ~/bin/fuzzy-lock
 
 # Take screenshot (Either entire screen or region/window)
 {_,ctrl +} Print
