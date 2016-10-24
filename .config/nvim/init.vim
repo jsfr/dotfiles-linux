@@ -10,29 +10,29 @@ function! DoRemote(arg)
 endfunction
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'tpope/vim-sensible'
 Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'justinmk/vim-sneak'
 Plug 'mbbill/undotree'
+Plug 'mileszs/ack.vim'
+Plug 'myusuf3/numbers.vim'
 Plug 'neomake/neomake'
 Plug 'scrooloose/nerdcommenter'
+Plug 'takac/vim-hardtime'
 Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-vinegar'
-Plug 'takac/vim-hardtime'
-Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-eunuch'
-Plug 'myusuf3/numbers.vim'
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
 
 " JS/Web
 Plug 'alvan/vim-closetag'
