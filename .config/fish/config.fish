@@ -20,4 +20,9 @@ alias aurac "sudo aura -Oj; and sudo paccache -r; and sudo paccache -ruk0; and s
 alias auras "sudo reflector --verbose -l 25 --sort rate --save /etc/pacman.d/mirrorlist"
 alias rm='echo "This is not the command you are looking for"; false'
 
+# evals
+eval (hub alias -s)
+eval (thefuck --alias | tr '\n' ';')
+
+# source environment
 bass source ~/.profile
