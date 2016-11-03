@@ -1,5 +1,5 @@
 chromium %U
   ^https?://
 
-transmission-add %U
+xterm -e aria2c %U
   ^magnet:
