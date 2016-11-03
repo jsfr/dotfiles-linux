@@ -38,7 +38,7 @@ Plug 'alvan/vim-closetag'
 Plug 'jaawerth/neomake-local-eslint-first'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'ternjs/tern_for_vim', { 'do': 'yarn install' }
 
 " TOML
 Plug 'cespare/vim-toml'
