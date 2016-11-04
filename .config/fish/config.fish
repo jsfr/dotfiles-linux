@@ -24,18 +24,5 @@ alias rm='echo "This is not the command you are looking for"; false'
 eval (hub alias -s)
 eval (thefuck --alias | tr '\n' ';')
 
-# Dirty hack to make delete work in st under fish
-switch $TERM
-    case 'st-*' # suckless' simple terminal
-                # Enable keypad, do it once before fish_postexec ever fires
-        tput smkx
-        function st_smkx --on-event fish_postexec
-            tput smkx
-        end
-        function st_rmkx --on-event fish_preexec
-            tput rmkx
-        end
-end
-
 # source environment
 bass source ~/.profile
