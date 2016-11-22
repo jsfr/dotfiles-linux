@@ -14,7 +14,7 @@
   prompt = false
 [alias]
   c = commit
-  up = "!git fetch && git rebase --autostash FETCH_HEAD"
+  up = "!git fetch --all --prune && git rebase --autostash FETCH_HEAD"
   p = push
   s = status -sb
   co = checkout
@@ -24,7 +24,7 @@
   dc = diff --cached
   df = diff --color --color-words --abbrev
   f = fetch
-  l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --graph
+  l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=short --graph
   yolo = "!git commit -m \"YOLO: `curl -s http://whatthecommit.com/index.txt`\""
   st = stash
 [core]
