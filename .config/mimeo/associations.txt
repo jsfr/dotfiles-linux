@@ -1,5 +1,5 @@
 chromium %U
   ^https?://
 
-xterm -e aria2c -d ~/Downloads %U
+xterm -e aria2c -d /home/jens/Downloads %U
   ^magnet:

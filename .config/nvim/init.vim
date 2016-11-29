@@ -39,6 +39,7 @@ Plug 'jaawerth/neomake-local-eslint-first'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', { 'do': 'yarn install' }
+Plug 'valloric/MatchTagAlways'
 
 " TOML
 Plug 'cespare/vim-toml'
@@ -190,6 +191,11 @@ endif
 " JS(X)/Web setup
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js" " Enable vim-closetag
 let g:jsx_ext_required = 0 " Enable vim-jsx for .js files
+let g:mta_filetypes = {'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'javascript.jsx' : 1}
+nnoremap <leader>% :MtaJumpToOtherTag<cr>
+" let g:mta_use_matchparen_group = 0
+" let g:mta_set_default_matchtag_color = 1
+" highlight MatchTag ctermfg=DarkCyan ctermbg=DarkGrey
 
 " Deoplete setup
 let g:deoplete#enable_at_startup = 1
@@ -244,15 +250,16 @@ if executable('ag')
 endif
 
 " enable hardtime
+nnoremap <leader>h :HardTimeToggle<CR>
+let g:hardtime_allow_different_key = 1
 let g:hardtime_default_on = 1
+let g:hardtime_ignore_buffer_patterns = [ "undotree*" ]
 let g:hardtime_ignore_quickfix = 1
 let g:hardtime_maxcount = 2
-nnoremap <leader>h :HardTimeToggle<CR>
+let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:list_of_insert_keys = []
 let g:list_of_normal_keys = ["h", "j", "k", "l"]
 let g:list_of_visual_keys = ["h", "j", "k", "l"]
-let g:list_of_insert_keys = []
-let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
-let g:hardtime_ignore_buffer_patterns = [ "undotree*" ]
 
 " sneak setup
 let g:sneak#s_next = 1
