@@ -151,6 +151,8 @@ nnoremap <leader>_pi :PlugInstall<CR>
 nnoremap <leader>_pu :PU<CR>
 nnoremap <leader>_pc :PlugClean<CR>
 
+map <leader>= mzgg=G`z
+
 
 " See http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity
 vmap v <Plug>(expand_region_expand)
@@ -229,8 +231,13 @@ if findfile('.eslintrc', '.;') ==# ''
 else
   let g:neomake_javascript_enabled_makers = ['eslint']
   let g:neomake_jsx_enabled_makers = ['eslint']
-  " autocmd! BufWritePost,BufEnter *.js Neomake
 endif
+
+let g:neomake_scss_enabled_makers = ['stylelint']
+let g:neomake_scss_stylelint_maker = {
+\ 'exe': 'stylelint',
+\ 'errorformat': '%+P%f,' . '%*\s%l:%c  %t  %m,' . '%-Q'
+\ }
 let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='~/repos/rust/src/'
 autocmd! BufWritePost * Neomake
@@ -253,7 +260,7 @@ endif
 nnoremap <leader>h :HardTimeToggle<CR>
 let g:hardtime_allow_different_key = 1
 let g:hardtime_default_on = 1
-let g:hardtime_ignore_buffer_patterns = [ "undotree*" ]
+let g:hardtime_ignore_buffer_patterns = [ "undotree*", ".git*" ]
 let g:hardtime_ignore_quickfix = 1
 let g:hardtime_maxcount = 2
 let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
@@ -277,3 +284,6 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
+
+" Use trash instead of rm for netrw
+let g:netrw_localrmdir='trash'
