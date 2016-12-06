@@ -35,7 +35,6 @@ Plug 'tpope/vim-vinegar'
 
 " JS/Web
 Plug 'alvan/vim-closetag'
-Plug 'jaawerth/neomake-local-eslint-first'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', { 'do': 'yarn install' }
@@ -81,9 +80,6 @@ if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
 set list                " Show problematic characters.
-" Also highlight all tabs and trailing whitespace characters.
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-match ExtraWhitespace /\s\+$\|\t/
 set hlsearch            " Highlight search results.
 set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
@@ -102,9 +98,6 @@ autocmd InsertLeave * set notimeout " Disable timeout in other modes
 " Use <CR> or <esc> to clear the highlighting of :set hlsearch.
 nnoremap <silent> <esc> :noh<CR><esc>
 nnoremap <silent> <CR> :noh<CR><CR>
-" if maparg('<C-L>', 'n') ==# ''
-"   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-" endif
 
 let mapleader = " "
 
@@ -153,7 +146,6 @@ nnoremap <leader>_pc :PlugClean<CR>
 
 map <leader>= mzgg=G`z
 
-
 " See http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
@@ -163,13 +155,6 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
-" Stay out of insert
-inoremap fd <Esc>
-inoremap jj <Esc>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
 
 " Fix st issue with DEL key
 map <F1> <del>
@@ -180,9 +165,6 @@ nnoremap U :UndotreeShow<CR>:UndotreeFocus<CR>
 
 " Disable macro recording on q
 map q <Nop>
-
-" Save current buffer as root
-" command! SaveAsRoot w !sudo tee %
 
 " Add persistent undo
 if has("persistent_undo")
@@ -195,9 +177,9 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js" " Enable vim-closetag
 let g:jsx_ext_required = 0 " Enable vim-jsx for .js files
 let g:mta_filetypes = {'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'javascript.jsx' : 1}
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
-" let g:mta_use_matchparen_group = 0
-" let g:mta_set_default_matchtag_color = 1
-" highlight MatchTag ctermfg=DarkCyan ctermbg=DarkGrey
+highlight MatchTag ctermfg=red ctermbg=NONE
+let g:mta_use_matchparen_group = 0
+let g:mta_set_default_matchtag_color = 1
 
 " Deoplete setup
 let g:deoplete#enable_at_startup = 1
@@ -240,7 +222,7 @@ let g:neomake_scss_stylelint_maker = {
 \ }
 let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='~/repos/rust/src/'
-autocmd! BufWritePost * Neomake
+autocmd! BufWritePost,BufEnter * Neomake
 
 " NERDCommenter setup
 let g:NERDSpaceDelims = 1            " Add spaces after comment delimiters by default
@@ -256,7 +238,9 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" enable hardtime
+" Hardtime
+inoremap fd <Esc>
+inoremap jj <Esc>
 nnoremap <leader>h :HardTimeToggle<CR>
 let g:hardtime_allow_different_key = 1
 let g:hardtime_default_on = 1

@@ -171,7 +171,6 @@ exec --no-startup-id unclutter --exclude-root -b
 exec --no-startup-id sxhkd
 exec --no-startup-id rambox
 exec --no-startup-id SpiderOakONE
-exec --no-startup-id turtl
 exec --no-startup-id enpass
 exec_always --no-startup-id (pgrep redshift || redshift -l 55.4:12.25 -m vidmode)
 exec_always --no-startup-id feh --bg-scale "$HOME/SpiderOak Hive/wallpapers/linux_terminal_wallpaper.png"

@@ -21,7 +21,6 @@ alias auras "sudo reflector --verbose -l 25 --sort rate --save /etc/pacman.d/mir
 alias rm='echo "This is not the command you are looking for"; false'
 
 # evals
-eval (hub alias -s)
 eval (thefuck --alias | tr '\n' ';')
 
 # source environment
