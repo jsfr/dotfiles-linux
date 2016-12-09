@@ -10,11 +10,13 @@ function! DoRemote(arg)
 endfunction
 
 call plug#begin('~/.config/nvim/plugged')
+" Theming
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Misc
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
@@ -33,18 +35,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 
+" 70+ syntax plugs
+Plug 'sheerun/vim-polyglot'
+
 " JS/Web
 Plug 'alvan/vim-closetag'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'ternjs/tern_for_vim', { 'do': 'yarn install' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'valloric/MatchTagAlways'
 
-" TOML
-Plug 'cespare/vim-toml'
-
 " Rust
-Plug 'rust-lang/rust.vim'
 Plug 'sebastianmarkow/deoplete-rust'
 
 call plug#end()
