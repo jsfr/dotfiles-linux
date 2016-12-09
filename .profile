@@ -12,3 +12,4 @@ export RUST_SRC_PATH=$HOME/repos/rust/src/
 export STEAM_FRAME_FORCE_CLOSE=1
 export TERMINAL=st
 export XDG_CONFIG_HOME=$HOME/.config
+export FZF_DEFAULT_COMMAND='find .'

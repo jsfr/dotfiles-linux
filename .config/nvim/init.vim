@@ -12,7 +12,6 @@ endfunction
 call plug#begin('~/.config/nvim/plugged')
 " Theming
 Plug 'altercation/vim-colors-solarized'
-Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -90,6 +89,7 @@ set clipboard^=unnamedplus " System clipboard
 set spelllang=en
 set spellfile=$HOME/.config/nvim/spell/en.utf-8.add
 set timeoutlen=250                  " Shorter timeout length
+
 set notimeout
 autocmd InsertEnter * set timeout   " Enable timeout in insert
 autocmd InsertLeave * set notimeout " Disable timeout in other modes
@@ -143,17 +143,12 @@ nnoremap <leader>_pi :PlugInstall<CR>
 nnoremap <leader>_pu :PU<CR>
 nnoremap <leader>_pc :PlugClean<CR>
 
+" Indent entire buffer
 map <leader>= mzgg=G`z
 
 " See http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
-
-" " ???
-" vnoremap <silent> y y`]
-" vnoremap <silent> p p`]
-" nnoremap <silent> p p`]
-
 
 " Fix st issue with DEL key
 map <F1> <del>
@@ -173,12 +168,11 @@ endif
 
 " JS(X)/Web setup
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js" " Enable vim-closetag
-let g:jsx_ext_required = 0 " Enable vim-jsx for .js files
 let g:mta_filetypes = {'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'javascript.jsx' : 1}
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
-highlight MatchTag ctermfg=red ctermbg=NONE
 let g:mta_use_matchparen_group = 0
-let g:mta_set_default_matchtag_color = 1
+let g:mta_set_default_matchtag_color = 0
+highlight MatchTag ctermfg=red ctermbg=NONE
 
 " Deoplete setup
 let g:deoplete#enable_at_startup = 1
@@ -201,26 +195,18 @@ if exists('g:plugs["tern_for_vim"]')
   let g:tern_show_signature_in_pum = 1
   autocmd FileType javascript setlocal omnifunc=tern#Complete
 endif
+" racer
+let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='~/repos/rust/src/'
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 " Neomake setup
-if findfile('.eslintrc', '.;') ==# ''
-  let g:neomake_javascript_enabled_makers = []
-  let g:neomake_jsx_enabled_makers = []
-else
-  let g:neomake_javascript_enabled_makers = ['eslint']
-  let g:neomake_jsx_enabled_makers = ['eslint']
-endif
-
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_scss_enabled_makers = ['stylelint']
-let g:neomake_scss_stylelint_maker = {
-\ 'exe': 'stylelint',
-\ 'errorformat': '%+P%f,' . '%*\s%l:%c  %t  %m,' . '%-Q'
-\ }
-let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='~/repos/rust/src/'
+let g:neomake_scss_stylelint_maker = { 'exe': 'stylelint', 'errorformat': '%+P%f,' . '%*\s%l:%c  %t  %m,' . '%-Q' }
 autocmd! BufWritePost,BufEnter * Neomake
 
 " NERDCommenter setup
