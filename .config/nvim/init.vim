@@ -25,7 +25,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'mbbill/undotree'
 Plug 'mileszs/ack.vim'
 Plug 'myusuf3/numbers.vim'
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
 Plug 'scrooloose/nerdcommenter'
 Plug 'takac/vim-hardtime'
 Plug 'terryma/vim-expand-region'
@@ -33,6 +33,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
+Plug 'w0rp/ale'
 
 " 70+ syntax plugs
 Plug 'sheerun/vim-polyglot'
@@ -125,12 +126,12 @@ nnoremap <leader>fs :w<CR>
 nnoremap <leader>fp :GFiles<CR>
 nnoremap <leader>fg :GFiles?<CR>
 
-nnoremap <leader>ln :lnext<CR>
-nnoremap <leader>lp :lprev<<CR>
+nmap <silent> <leader>ln <Plug>(ale_previous_wrap)
+nmap <silent> <leader>lp <Plug>(ale_next_wrap)
 nnoremap <leader>ll :ll<CR>
 nnoremap <leader>lo :lopen<CR>
 
-nnoremap <leader><tab> :b#<CR>
+nnoremap <leader><tab> :Buffers<CR><CR>
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
@@ -142,6 +143,8 @@ nnoremap <leader>_d :e $MYVIMRC<CR>
 nnoremap <leader>_pi :PlugInstall<CR>
 nnoremap <leader>_pu :PU<CR>
 nnoremap <leader>_pc :PlugClean<CR>
+
+nnoremap zz '"
 
 " Indent entire buffer
 map <leader>= mzgg=G`z
@@ -202,12 +205,11 @@ let g:deoplete#sources#rust#rust_source_path='~/repos/rust/src/'
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
-" Neomake setup
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_jsx_enabled_makers = ['eslint']
-let g:neomake_scss_enabled_makers = ['stylelint']
-let g:neomake_scss_stylelint_maker = { 'exe': 'stylelint', 'errorformat': '%+P%f,' . '%*\s%l:%c  %t  %m,' . '%-Q' }
-autocmd! BufWritePost,BufEnter * Neomake
+" ALE setup
+" let g:ale_linters = {
+"       \   'javascript' : ['eslint'],
+"       \   'scss'       : ['stylelint']
+"       \}
 
 " NERDCommenter setup
 let g:NERDSpaceDelims = 1            " Add spaces after comment delimiters by default
