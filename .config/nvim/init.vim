@@ -161,7 +161,7 @@ map! <F1> <del>
 nnoremap U :UndotreeShow<CR>:UndotreeFocus<CR>
 
 " Disable macro recording on q
-map q <Nop>
+" map q <Nop>
 
 " Add persistent undo
 if has("persistent_undo")
