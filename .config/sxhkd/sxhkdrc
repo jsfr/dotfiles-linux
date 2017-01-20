@@ -33,6 +33,10 @@ ctrl + alt + l
 ctrl + alt + h
     copyq toggle
 
+# Fix keyboard
+ctrl + alt + k
+    xmodmap ~/.Xmodmap && notify-send "xmodmap reloaded!"
+
 # Show launcher for commands/windows
 super + {d,w}
     rofi -show {run,window} -location 2 -width 100 -font Hack\ 9 -hide-scrollbar -levenshtein-sort -dpi 192
